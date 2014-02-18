@@ -15,6 +15,10 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class SOSubscription extends Subscription{
 	private class SOSCustomFields{
 		private String groupId;

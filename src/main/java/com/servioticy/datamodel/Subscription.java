@@ -20,6 +20,10 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="callback")
 @JsonSubTypes({

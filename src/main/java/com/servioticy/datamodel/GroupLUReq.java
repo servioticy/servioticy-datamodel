@@ -17,6 +17,10 @@ package com.servioticy.datamodel;
 
 import java.util.ArrayList;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class GroupLUReq {
 	ArrayList<String> soids;
 	String stream;

@@ -17,6 +17,10 @@ package com.servioticy.datamodel;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class SUChannel{
 	@JsonProperty("current-value")
 	private Object currentValue;

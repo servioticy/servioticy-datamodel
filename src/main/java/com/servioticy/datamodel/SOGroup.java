@@ -17,6 +17,10 @@ package com.servioticy.datamodel;
 
 import java.util.ArrayList;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class SOGroup {
 	ArrayList<String> soids;
 	ArrayList<String> dynsets;

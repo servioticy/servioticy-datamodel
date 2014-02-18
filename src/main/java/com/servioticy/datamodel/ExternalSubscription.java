@@ -18,6 +18,10 @@ package com.servioticy.datamodel;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class ExternalSubscription extends Subscription{
 	public class ESCustomFields{
 		private ArrayList <LinkedHashMap<String, String>> aliases;

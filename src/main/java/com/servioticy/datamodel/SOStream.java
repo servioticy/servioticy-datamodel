@@ -19,6 +19,10 @@ import java.util.LinkedHashMap;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class SOStream {
 	private LinkedHashMap<String, SOChannel> channels;
 	private String description;
