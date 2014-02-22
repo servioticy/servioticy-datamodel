@@ -23,6 +23,9 @@ public class SOSubscription extends Subscription{
 	private class SOSCustomFields{
 		private String groupId;
 
+		public SOSCustomFields() {
+		}
+
 		public String getGroupId() {
 			return groupId;
 		}

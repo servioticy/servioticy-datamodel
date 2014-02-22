@@ -24,6 +24,11 @@ public class UpdateDescriptor {
 	String soid;
 	String streamid;
 	SensorUpdate su;
+	
+	public UpdateDescriptor(){
+		
+	}
+	
 	/**
 	 * @return the opid
 	 */

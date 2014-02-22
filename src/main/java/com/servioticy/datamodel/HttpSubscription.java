@@ -25,6 +25,11 @@ public class HttpSubscription extends ExternalSubscription {
 	private class HSCustomFields extends ExternalSubscription.ESCustomFields{
 		private LinkedHashMap <String, String> headers;
 		private String method;
+		
+		public HSCustomFields(){
+			
+		}
+		
 		public LinkedHashMap<String, String> getHeaders() {
 			return headers;
 		}
@@ -40,6 +45,10 @@ public class HttpSubscription extends ExternalSubscription {
 	}
 	private HSCustomFields customFields;
 
+	public HttpSubscription(){
+		
+	}
+	
 	public HSCustomFields getCustomFields() {
 		return customFields;
 	}

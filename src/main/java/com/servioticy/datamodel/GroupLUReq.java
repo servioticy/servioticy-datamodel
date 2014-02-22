@@ -25,6 +25,10 @@ public class GroupLUReq {
 	ArrayList<String> soids;
 	String stream;
 	
+	public GroupLUReq(){
+		
+	}
+	
 	public ArrayList<String> getSoids() {
 		return soids;
 	}
