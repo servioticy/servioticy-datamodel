@@ -36,9 +36,8 @@ public class Subscription{
 	@JsonIgnore static final public String SUBS_HTTP = "http";
 	@JsonIgnore static final public String SUBS_PUBSUB = "pubsub";
 	
-	private String id;
 	private String callback; // Kind of subscription
-	
+	private String id;
 //	private Long delay; // Not used (I believe)
 //	private Long expire; // Not used (I believe)
 	private String destination;

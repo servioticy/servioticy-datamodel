@@ -22,7 +22,7 @@ package com.servioticy.datamodel;
 public class SOSubscription extends Subscription{
 	private class SOSCustomFields{
 		private String groupId;
-
+		
 		public SOSCustomFields() {
 		}
 
@@ -34,9 +34,8 @@ public class SOSubscription extends Subscription{
 			this.groupId = groupId;
 		}
 	}
-
 	private SOSCustomFields customFields;
-	
+
 	public SOSCustomFields getCustomFields() {
 		return customFields;
 	}
