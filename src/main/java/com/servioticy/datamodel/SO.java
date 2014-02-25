@@ -18,10 +18,13 @@ package com.servioticy.datamodel;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SO {
 
 	String id;

@@ -15,10 +15,13 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SOAction {
 	String name;
 	String description;

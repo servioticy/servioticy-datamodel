@@ -17,10 +17,13 @@ package com.servioticy.datamodel;
 
 import java.util.ArrayList;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SOGroup {
 	ArrayList<String> members;
 	String stream;
