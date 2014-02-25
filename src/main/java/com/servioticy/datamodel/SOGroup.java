@@ -25,20 +25,17 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SOGroup {
-	ArrayList<String> members;
+	ArrayList<String> soIds;
 	String stream;
 	
-	/**
-	 * @return the members
-	 */
-	public ArrayList<String> getMembers() {
-		return members;
+	public SOGroup(){
 	}
-	/**
-	 * @param members the members to set
-	 */
-	public void setMembers(ArrayList<String> members) {
-		this.members = members;
+	
+	public ArrayList<String> getSoids() {
+		return soIds;
+	}
+	public void setSoids(ArrayList<String> soIds) {
+		this.soIds = soIds;
 	}
 	public String getStream() {
 		return stream;
