@@ -31,10 +31,10 @@ public class SOGroup {
 	public SOGroup(){
 	}
 	
-	public ArrayList<String> getSoids() {
+	public ArrayList<String> getSoIds() {
 		return soIds;
 	}
-	public void setSoids(ArrayList<String> soIds) {
+	public void setSoIds(ArrayList<String> soIds) {
 		this.soIds = soIds;
 	}
 	public String getStream() {
