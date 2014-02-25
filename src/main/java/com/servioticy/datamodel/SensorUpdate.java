@@ -17,6 +17,13 @@ package com.servioticy.datamodel;
 
 import java.util.LinkedHashMap;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SensorUpdate{
 //	Stream location of the SO
 //	{

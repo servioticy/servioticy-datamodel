@@ -15,41 +15,68 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SOAction {
-	String name;
-	String description;
-	String group;
-	String action;	
+public class UpdateDescriptor {
+	String opid;
+	String soid;
+	String streamid;
+	SensorUpdate su;
 	
-	public String getName() {
-		return name;
+	public UpdateDescriptor(){
+		
 	}
-	public void setName(String name) {
-		this.name = name;
+	
+	/**
+	 * @return the opid
+	 */
+	public String getOpid() {
+		return opid;
 	}
-	public String getDescription() {
-		return description;
+	/**
+	 * @param opid the opid to set
+	 */
+	public void setOpid(String opid) {
+		this.opid = opid;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	/**
+	 * @return the soid
+	 */
+	public String getSoid() {
+		return soid;
 	}
-	public String getGroup() {
-		return group;
+	/**
+	 * @param soid the soid to set
+	 */
+	public void setSoid(String soid) {
+		this.soid = soid;
 	}
-	public void setGroup(String group) {
-		this.group = group;
+	/**
+	 * @return the streamid
+	 */
+	public String getStreamid() {
+		return streamid;
 	}
-	public String getAction() {
-		return action;
+	/**
+	 * @param streamid the streamid to set
+	 */
+	public void setStreamid(String streamid) {
+		this.streamid = streamid;
 	}
-	public void setAction(String action) {
-		this.action = action;
+	/**
+	 * @return the su
+	 */
+	public SensorUpdate getSu() {
+		return su;
 	}
+	/**
+	 * @param su the su to set
+	 */
+	public void setSu(SensorUpdate su) {
+		this.su = su;
+	}
+	
+	
 }

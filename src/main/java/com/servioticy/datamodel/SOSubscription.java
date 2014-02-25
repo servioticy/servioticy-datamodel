@@ -15,9 +15,19 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SOSubscription extends Subscription{
 	private class SOSCustomFields{
 		private String groupId;
+		
+		public SOSCustomFields() {
+		}
 
 		public String getGroupId() {
 			return groupId;
@@ -27,9 +37,8 @@ public class SOSubscription extends Subscription{
 			this.groupId = groupId;
 		}
 	}
-
 	private SOSCustomFields customFields;
-	
+
 	public SOSCustomFields getCustomFields() {
 		return customFields;
 	}

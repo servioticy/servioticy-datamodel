@@ -17,22 +17,28 @@ package com.servioticy.datamodel;
 
 import java.util.ArrayList;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SOGroup {
-	ArrayList<String> soids;
-	ArrayList<String> dynsets;
+	ArrayList<String> members;
 	String stream;
 	
-	public ArrayList<String> getDynsets() {
-		return dynsets;
+	/**
+	 * @return the members
+	 */
+	public ArrayList<String> getMembers() {
+		return members;
 	}
-	public void setDynsets(ArrayList<String> dynsets) {
-		this.dynsets = dynsets;
-	}
-	public ArrayList<String> getSoids() {
-		return soids;
-	}
-	public void setSoids(ArrayList<String> soids) {
-		this.soids = soids;
+	/**
+	 * @param members the members to set
+	 */
+	public void setMembers(ArrayList<String> members) {
+		this.members = members;
 	}
 	public String getStream() {
 		return stream;

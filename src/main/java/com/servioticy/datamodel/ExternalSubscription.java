@@ -18,10 +18,17 @@ package com.servioticy.datamodel;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
 public class ExternalSubscription extends Subscription{
 	public class ESCustomFields{
 		private ArrayList <LinkedHashMap<String, String>> aliases;
 		private String body; // Both the body of the http message and the PubSub message
+		
+		public ESCustomFields(){
+		}
 		
 		public ArrayList<LinkedHashMap<String, String>> getAliases() {
 			return aliases;
@@ -35,6 +42,9 @@ public class ExternalSubscription extends Subscription{
 		public void setBody(String body) {
 			this.body = body;
 		}
+	}
+	
+	public ExternalSubscription(){
 	}
 	
 	private ESCustomFields customFields;

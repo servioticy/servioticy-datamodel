@@ -15,8 +15,14 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
+/**
+ * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * 
+ */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SUChannel{
 	@JsonProperty("current-value")
 	private Object currentValue;
