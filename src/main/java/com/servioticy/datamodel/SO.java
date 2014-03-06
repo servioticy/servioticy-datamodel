@@ -33,14 +33,14 @@ public class SO {
 	ArrayList<LinkedHashMap<String, String>> aliases;
 	LinkedHashMap<String, SOStream> streams;
 	LinkedHashMap<String, SOGroup> groups;
-	LinkedHashMap<String, Object> queries;
-	ArrayList<SOAction> actions;
-	LinkedHashMap<String, String> properties;
-	LinkedHashMap<String, String> links;
-	
-	/**
-	 * @return the id
-	 */
+//	LinkedHashMap<String, Object> queries;
+//	ArrayList<SOAction> actions;
+//	LinkedHashMap<String, String> properties;
+//	LinkedHashMap<String, String> links;
+
+    /**
+     * @return the id
+     */
 	public String getId() {
 		return id;
 	}
@@ -110,52 +110,52 @@ public class SO {
 	public void setGroups(LinkedHashMap<String, SOGroup> groups) {
 		this.groups = groups;
 	}
-	/**
-	 * @return the queries
-	 */
-	public LinkedHashMap<String, Object> getQueries() {
-		return queries;
-	}
-	/**
-	 * @param queries the queries to set
-	 */
-	public void setQueries(LinkedHashMap<String, Object> queries) {
-		this.queries = queries;
-	}
-	/**
-	 * @return the actions
-	 */
-	public ArrayList<SOAction> getActions() {
-		return actions;
-	}
-	/**
-	 * @param actions the actions to set
-	 */
-	public void setActions(ArrayList<SOAction> actions) {
-		this.actions = actions;
-	}
-	/**
-	 * @return the properties
-	 */
-	public LinkedHashMap<String, String> getProperties() {
-		return properties;
-	}
-	/**
-	 * @param properties the properties to set
-	 */
-	public void setProperties(LinkedHashMap<String, String> properties) {
-		this.properties = properties;
-	}
-	/**
-	 * @return the links
-	 */
-	public LinkedHashMap<String, String> getLinks() {
-		return links;
-	}
-	/**
-	 * @param links the links to set
-	 */
-	public void setLinks(LinkedHashMap<String, String> links) {
-		this.links = links;
-	}
+//	/**
+//	 * @return the queries
+//	 */
+//	public LinkedHashMap<String, Object> getQueries() {
+//		return queries;
+//	}
+//	/**
+//	 * @param queries the queries to set
+//	 */
+//	public void setQueries(LinkedHashMap<String, Object> queries) {
+//		this.queries = queries;
+//	}
+//	/**
+//	 * @return the actions
+//	 */
+//	public ArrayList<SOAction> getActions() {
+//		return actions;
+//	}
+//	/**
+//	 * @param actions the actions to set
+//	 */
+//	public void setActions(ArrayList<SOAction> actions) {
+//		this.actions = actions;
+//	}
+//	/**
+//	 * @return the properties
+//	 */
+//	public LinkedHashMap<String, String> getProperties() {
+//		return properties;
+//	}
+//	/**
+//	 * @param properties the properties to set
+//	 */
+//	public void setProperties(LinkedHashMap<String, String> properties) {
+//		this.properties = properties;
+//	}
+//	/**
+//	 * @return the links
+//	 */
+//	public LinkedHashMap<String, String> getLinks() {
+//		return links;
+//	}
+//	/**
+//	 * @param links the links to set
+//	 */
+//	public void setLinks(LinkedHashMap<String, String> links) {
+//		this.links = links;
+//	}
 }
