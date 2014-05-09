@@ -22,12 +22,12 @@ import java.util.LinkedHashMap;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-public class ExternalSubscription extends Subscription{
-	public class ESCustomFields{
+public class PubSubSubscription extends Subscription{
+	public class PSCustomFields{
 		private ArrayList <LinkedHashMap<String, String>> aliases;
 		private String body; // Both the body of the http message and the PubSub message
 		
-		public ESCustomFields(){
+		public PSCustomFields(){
 		}
 		
 		public ArrayList<LinkedHashMap<String, String>> getAliases() {
@@ -44,15 +44,15 @@ public class ExternalSubscription extends Subscription{
 		}
 	}
 	
-	public ExternalSubscription(){
+	public PubSubSubscription(){
 	}
 	
-	private ESCustomFields customFields;
+	private PSCustomFields customFields;
 
-	public ESCustomFields getCustomFields() {
+	public PSCustomFields getCustomFields() {
 		return customFields;
 	}
-	public void setCustomFields(ESCustomFields customFields) {
+	public void setCustomFields(PSCustomFields customFields) {
 		this.customFields = customFields;
 	}
 	public ArrayList<LinkedHashMap<String, String>> getAliases() {
@@ -63,7 +63,7 @@ public class ExternalSubscription extends Subscription{
 	}
 	public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
 		if(this.getCustomFields() == null){
-			this.setCustomFields(new ESCustomFields());
+			this.setCustomFields(new PSCustomFields());
 		}
 		this.getCustomFields().setAliases(aliases);
 	}
@@ -75,7 +75,7 @@ public class ExternalSubscription extends Subscription{
 	}
 	public void setBody(String body) {
 		if(this.getCustomFields() == null){
-			this.setCustomFields(new ESCustomFields());
+			this.setCustomFields(new PSCustomFields());
 		}
 		this.getCustomFields().setBody(body);
 	}

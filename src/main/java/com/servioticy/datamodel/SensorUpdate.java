@@ -12,19 +12,19 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
+ ******************************************************************************/
 package com.servioticy.datamodel;
-
-import java.util.LinkedHashMap;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SensorUpdate{
+public class SensorUpdate {
 //	Stream location of the SO
 //	{
 //		"channels":{					
@@ -39,21 +39,54 @@ public class SensorUpdate{
 //		},
 //		"lastUpdate": 1199192939
 //	}
-	
-	private LinkedHashMap<String, SUChannel> channels;
 
-	private Long lastUpdate;
-	
-	public LinkedHashMap<String, SUChannel> getChannels() {
-		return channels;
-	}
-	public void setChannels(LinkedHashMap<String, SUChannel> channels) {
-		this.channels = channels;
-	}
-	public long getLastUpdate() {
-		return lastUpdate;
-	}
-	public void setLastUpdate(long lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
+    private LinkedHashMap<String, SUChannel> channels;
+
+    private Long lastUpdate;
+
+    private ArrayList<ArrayList<String>> streamsChain;
+    private ArrayList<Long> timestampChain;
+
+    private Long originId;
+
+    public ArrayList<ArrayList<String>> getStreamsChain() {
+        return streamsChain;
+    }
+
+    public void setStreamsChain(ArrayList<ArrayList<String>> streamsChain) {
+        this.streamsChain = streamsChain;
+    }
+
+    public Long getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(Long originId) {
+        this.originId = originId;
+    }
+
+    public ArrayList<Long> getTimestampChain() {
+        return timestampChain;
+    }
+
+    public void setTimestampChain(ArrayList<Long> timestampChain) {
+        this.timestampChain = timestampChain;
+    }
+
+    public LinkedHashMap<String, SUChannel> getChannels() {
+        return channels;
+    }
+
+    public void setChannels(LinkedHashMap<String, SUChannel> channels) {
+        this.channels = channels;
+    }
+
+    public long getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(long lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
 }

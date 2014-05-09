@@ -21,8 +21,8 @@ import java.util.LinkedHashMap;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-public class HttpSubscription extends ExternalSubscription {
-	private class HSCustomFields extends ExternalSubscription.ESCustomFields{
+public class HttpSubscription extends PubSubSubscription {
+	private class HSCustomFields extends PubSubSubscription.PSCustomFields{
 		private LinkedHashMap <String, String> headers;
 		private String method;
 		

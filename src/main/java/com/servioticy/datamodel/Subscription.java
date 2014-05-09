@@ -29,7 +29,7 @@ import org.codehaus.jackson.annotate.JsonSubTypes;
 @JsonSubTypes({
 	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_INTERNAL),
     @JsonSubTypes.Type(value=HttpSubscription.class, name=Subscription.SUBS_HTTP),
-    @JsonSubTypes.Type(value=ExternalSubscription.class, name=Subscription.SUBS_HTTP)
+    @JsonSubTypes.Type(value=PubSubSubscription.class, name=Subscription.SUBS_PUBSUB)
 })
 public class Subscription{
 	@JsonIgnore static final public String SUBS_INTERNAL = "internal";
