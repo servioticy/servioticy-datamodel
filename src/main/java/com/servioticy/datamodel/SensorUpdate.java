@@ -49,11 +49,8 @@ public class SensorUpdate {
 
     private Long originId;
 
-<<<<<<< HEAD
-=======
     private Object provenance;
 
->>>>>>> alvaro
     public ArrayList<ArrayList<String>> getStreamsChain() {
         return streamsChain;
     }
@@ -94,8 +91,6 @@ public class SensorUpdate {
         this.lastUpdate = lastUpdate;
     }
 
-<<<<<<< HEAD
-=======
     public Object getProvenance() {
         return provenance;
     }
@@ -103,5 +98,4 @@ public class SensorUpdate {
     public void setProvenance(Object provenance) {
         this.provenance = provenance;
     }
->>>>>>> alvaro
 }
