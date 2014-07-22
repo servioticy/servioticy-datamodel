@@ -49,7 +49,7 @@ public class SensorUpdate {
 
     private Long originId;
 
-    private Object provenance;
+    private Object security;
 
     public ArrayList<ArrayList<String>> getStreamsChain() {
         return streamsChain;
@@ -91,11 +91,11 @@ public class SensorUpdate {
         this.lastUpdate = lastUpdate;
     }
 
-    public Object getProvenance() {
-        return provenance;
+    public Object getSecurity() {
+        return security;
     }
 
-    public void setProvenance(Object provenance) {
-        this.provenance = provenance;
+    public void setSecurity(Object security) {
+        this.security = security;
     }
 }
