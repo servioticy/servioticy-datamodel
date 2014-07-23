@@ -15,9 +15,9 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import java.util.ArrayList;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>

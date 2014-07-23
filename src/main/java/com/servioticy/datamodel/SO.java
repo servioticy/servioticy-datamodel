@@ -15,10 +15,10 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
@@ -33,6 +33,7 @@ public class SO {
 	ArrayList<LinkedHashMap<String, String>> aliases;
 	LinkedHashMap<String, SOStream> streams;
 	LinkedHashMap<String, SOGroup> groups;
+    Object security;
 //	LinkedHashMap<String, Object> queries;
 //	ArrayList<SOAction> actions;
 //	LinkedHashMap<String, String> properties;
@@ -110,6 +111,14 @@ public class SO {
 	public void setGroups(LinkedHashMap<String, SOGroup> groups) {
 		this.groups = groups;
 	}
+
+    public Object getSecurity() {
+        return security;
+    }
+
+    public void setSecurity(Object security) {
+        this.security = security;
+    }
 //	/**
 //	 * @return the queries
 //	 */
