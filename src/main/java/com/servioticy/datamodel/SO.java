@@ -15,10 +15,10 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>

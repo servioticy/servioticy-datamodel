@@ -15,9 +15,7 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
-import java.util.LinkedHashMap;
-
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
