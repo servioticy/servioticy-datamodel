@@ -49,8 +49,6 @@ public class SensorUpdate {
 
     private Long originId;
 
-    private Object security;
-
     public ArrayList<ArrayList<String>> getStreamsChain() {
         return streamsChain;
     }
@@ -89,13 +87,5 @@ public class SensorUpdate {
 
     public void setLastUpdate(long lastUpdate) {
         this.lastUpdate = lastUpdate;
-    }
-
-    public Object getSecurity() {
-        return security;
-    }
-
-    public void setSecurity(Object security) {
-        this.security = security;
     }
 }
