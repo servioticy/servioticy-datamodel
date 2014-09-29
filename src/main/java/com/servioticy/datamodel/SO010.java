@@ -16,6 +16,8 @@
 package com.servioticy.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -24,12 +26,10 @@ import java.util.LinkedHashMap;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SO01 extends SO {
-
-
+public class SO010 extends SO {
 	ArrayList<LinkedHashMap<String, String>> aliases;
-
 	/**
 	 * @return the aliases
 	 */

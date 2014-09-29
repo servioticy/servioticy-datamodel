@@ -12,15 +12,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
+ ******************************************************************************/
 package com.servioticy.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.LinkedHashMap;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
+ *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SO02 extends SO {
+public class SOStream020 extends SOStream{
+
 }

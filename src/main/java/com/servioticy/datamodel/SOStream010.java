@@ -18,14 +18,12 @@ package com.servioticy.datamodel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.LinkedHashMap;
-
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOStream01 extends SOStream{
+public class SOStream010 extends SOStream{
 	@JsonProperty("pre-filter")
 	private String preFilter;
 	@JsonProperty("post-filter")

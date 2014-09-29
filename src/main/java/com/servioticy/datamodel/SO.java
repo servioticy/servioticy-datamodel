@@ -16,25 +16,33 @@
 package com.servioticy.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.LinkedHashMap;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="version")
+@JsonTypeInfo(
+        use=JsonTypeInfo.Id.NAME,
+        include=JsonTypeInfo.As.PROPERTY,
+        property="version",
+        defaultImpl = SO010.class)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value=SO01.class, name=SO.V_0_1),
-        @JsonSubTypes.Type(value=SO02.class, name=SO.V_0_2),
-        // Default version of SO
-        @JsonSubTypes.Type(value=SO01.class)
+        @JsonSubTypes.Type(value=SO010.class, name=SO.V_0_1_0),
+        @JsonSubTypes.Type(value=SO020.class, name=SO.V_0_2_0)
 })
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SO{
-    @JsonIgnore static final public String V_0_1 = "0.1";
-    @JsonIgnore static final public String V_0_2 = "0.2";
+    @JsonIgnore static final public String V_0_1_0 = "0.1.0";
+    @JsonIgnore static final public String V_0_2_0 = "0.2.0";
 
     String version;
     String id;
@@ -47,7 +55,6 @@ public class SO{
     //	ArrayList<SOAction> actions;
     //	LinkedHashMap<String, String> properties;
     //	LinkedHashMap<String, String> links;
-
     public String getVersion() {
         return version;
     }
