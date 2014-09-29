@@ -15,9 +15,29 @@
  ******************************************************************************/
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.LinkedHashMap;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-public class SO extends SO03 {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class SOStream03 {
+    private LinkedHashMap<String, SOChannel> channels;
+    private String description;
+
+    public LinkedHashMap<String, SOChannel> getChannels() {
+        return channels;
+    }
+    public void setChannels(LinkedHashMap<String, SOChannel> channels) {
+        this.channels = channels;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
