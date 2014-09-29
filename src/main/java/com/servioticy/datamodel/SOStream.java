@@ -15,9 +15,36 @@
  ******************************************************************************/
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import java.util.LinkedHashMap;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-public class SOStream extends SOStream02 {
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.EXTERNAL_PROPERTY, property="version")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value=SOStream01.class, name=SO.V_0_1),
+        @JsonSubTypes.Type(value=SOStream02.class, name=SO.V_0_2),
+        // Default version of SO
+        @JsonSubTypes.Type(value=SOStream01.class)
+})
+public class SOStream{
+    private LinkedHashMap<String, SOChannel> channels;
+    private String description;
+
+    public LinkedHashMap<String, SOChannel> getChannels() {
+        return channels;
+    }
+    public void setChannels(LinkedHashMap<String, SOChannel> channels) {
+        this.channels = channels;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

@@ -25,26 +25,12 @@ import java.util.LinkedHashMap;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOStream01 {
-	private LinkedHashMap<String, SOChannel> channels;
-	private String description;
+public class SOStream01 extends SOStream{
 	@JsonProperty("pre-filter")
 	private String preFilter;
 	@JsonProperty("post-filter")
 	private String postFilter;
-	
-	public LinkedHashMap<String, SOChannel> getChannels() {
-		return channels;
-	}
-	public void setChannels(LinkedHashMap<String, SOChannel> channels) {
-		this.channels = channels;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
+
 	public String getPreFilter() {
 		return preFilter;
 	}

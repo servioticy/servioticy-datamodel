@@ -41,6 +41,7 @@ public class SO{
     String name;
     String description;
     LinkedHashMap<String, SOGroup> groups;
+    LinkedHashMap<String, SOStream> streams;
 
     //	LinkedHashMap<String, Object> queries;
     //	ArrayList<SOAction> actions;
@@ -86,7 +87,15 @@ public class SO{
     public void setGroups(LinkedHashMap<String, SOGroup> groups) {
         this.groups = groups;
     }
-//	/**
+
+    public LinkedHashMap<String, SOStream> getStreams() {
+        return streams;
+    }
+
+    public void setStreams(LinkedHashMap<String, SOStream> streams) {
+        this.streams = streams;
+    }
+    //	/**
 //	 * @return the queries
 //	 */
 //	public LinkedHashMap<String, Object> getQueries() {

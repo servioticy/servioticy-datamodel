@@ -29,7 +29,6 @@ public class SO01 extends SO {
 
 
 	ArrayList<LinkedHashMap<String, String>> aliases;
-	LinkedHashMap<String, SOStream01> streams;
 
 	/**
 	 * @return the aliases
@@ -42,18 +41,6 @@ public class SO01 extends SO {
 	 */
 	public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
 		this.aliases = aliases;
-	}
-	/**
-	 * @return the streams
-	 */
-	public LinkedHashMap<String, SOStream01> getStreams() {
-		return streams;
-	}
-	/**
-	 * @param streams the streams to set
-	 */
-	public void setStreams(LinkedHashMap<String, SOStream01> streams) {
-		this.streams = streams;
 	}
 
 }

@@ -17,28 +17,10 @@ package com.servioticy.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.LinkedHashMap;
-
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SO02 extends SO {
-
-	LinkedHashMap<String, SOStream02> streams;
-
-	/**
-	 * @return the streams
-	 */
-	public LinkedHashMap<String, SOStream02> getStreams() {
-		return streams;
-	}
-	/**
-	 * @param streams the streams to set
-	 */
-	public void setStreams(LinkedHashMap<String, SOStream02> streams) {
-		this.streams = streams;
-	}
-
 }
