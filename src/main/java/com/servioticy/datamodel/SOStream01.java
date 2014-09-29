@@ -16,6 +16,7 @@
 package com.servioticy.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.LinkedHashMap;
 
@@ -24,21 +25,36 @@ import java.util.LinkedHashMap;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SO02 extends SO {
-
-	LinkedHashMap<String, SOStream02> streams;
-
-	/**
-	 * @return the streams
-	 */
-	public LinkedHashMap<String, SOStream02> getStreams() {
-		return streams;
+public class SOStream01 {
+	private LinkedHashMap<String, SOChannel> channels;
+	private String description;
+	@JsonProperty("pre-filter")
+	private String preFilter;
+	@JsonProperty("post-filter")
+	private String postFilter;
+	
+	public LinkedHashMap<String, SOChannel> getChannels() {
+		return channels;
 	}
-	/**
-	 * @param streams the streams to set
-	 */
-	public void setStreams(LinkedHashMap<String, SOStream02> streams) {
-		this.streams = streams;
+	public void setChannels(LinkedHashMap<String, SOChannel> channels) {
+		this.channels = channels;
 	}
-
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getPreFilter() {
+		return preFilter;
+	}
+	public void setPreFilter(String preFilter) {
+		this.preFilter = preFilter;
+	}
+	public String getPostFilter() {
+		return postFilter;
+	}
+	public void setPostFilter(String postFilter) {
+		this.postFilter = postFilter;
+	}
 }

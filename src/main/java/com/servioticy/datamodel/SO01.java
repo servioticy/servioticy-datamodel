@@ -12,32 +12,48 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
+ ******************************************************************************/ 
 package com.servioticy.datamodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- *
+ * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOStream03 {
-    private LinkedHashMap<String, SOChannel> channels;
-    private String description;
+public class SO01 extends SO {
 
-    public LinkedHashMap<String, SOChannel> getChannels() {
-        return channels;
-    }
-    public void setChannels(LinkedHashMap<String, SOChannel> channels) {
-        this.channels = channels;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
+
+	ArrayList<LinkedHashMap<String, String>> aliases;
+	LinkedHashMap<String, SOStream01> streams;
+
+	/**
+	 * @return the aliases
+	 */
+	public ArrayList<LinkedHashMap<String, String>> getAliases() {
+		return aliases;
+	}
+	/**
+	 * @param aliases the aliases to set
+	 */
+	public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
+		this.aliases = aliases;
+	}
+	/**
+	 * @return the streams
+	 */
+	public LinkedHashMap<String, SOStream01> getStreams() {
+		return streams;
+	}
+	/**
+	 * @param streams the streams to set
+	 */
+	public void setStreams(LinkedHashMap<String, SOStream01> streams) {
+		this.streams = streams;
+	}
+
 }

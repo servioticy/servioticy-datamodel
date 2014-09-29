@@ -15,9 +15,123 @@
  ******************************************************************************/
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import java.util.LinkedHashMap;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-public class SO extends SO03 {
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="version")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value=SO01.class, name=SO.V_0_1),
+        @JsonSubTypes.Type(value=SO02.class, name=SO.V_0_2),
+        // Default version of SO
+        @JsonSubTypes.Type(value=SO01.class)
+})
+public class SO{
+    @JsonIgnore static final public String V_0_1 = "0.1";
+    @JsonIgnore static final public String V_0_2 = "0.2";
+
+    String version;
+    String id;
+    String name;
+    String description;
+    LinkedHashMap<String, SOGroup> groups;
+
+    //	LinkedHashMap<String, Object> queries;
+    //	ArrayList<SOAction> actions;
+    //	LinkedHashMap<String, String> properties;
+    //	LinkedHashMap<String, String> links;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LinkedHashMap<String, SOGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(LinkedHashMap<String, SOGroup> groups) {
+        this.groups = groups;
+    }
+//	/**
+//	 * @return the queries
+//	 */
+//	public LinkedHashMap<String, Object> getQueries() {
+//		return queries;
+//	}
+//	/**
+//	 * @param queries the queries to set
+//	 */
+//	public void setQueries(LinkedHashMap<String, Object> queries) {
+//		this.queries = queries;
+//	}
+//	/**
+//	 * @return the actions
+//	 */
+//	public ArrayList<SOAction> getActions() {
+//		return actions;
+//	}
+//	/**
+//	 * @param actions the actions to set
+//	 */
+//	public void setActions(ArrayList<SOAction> actions) {
+//		this.actions = actions;
+//	}
+//	/**
+//	 * @return the properties
+//	 */
+//	public LinkedHashMap<String, String> getProperties() {
+//		return properties;
+//	}
+//	/**
+//	 * @param properties the properties to set
+//	 */
+//	public void setProperties(LinkedHashMap<String, String> properties) {
+//		this.properties = properties;
+//	}
+//	/**
+//	 * @return the links
+//	 */
+//	public LinkedHashMap<String, String> getLinks() {
+//		return links;
+//	}
+//	/**
+//	 * @param links the links to set
+//	 */
+//	public void setLinks(LinkedHashMap<String, String> links) {
+//		this.links = links;
+//	}
 }

@@ -19,5 +19,5 @@ package com.servioticy.datamodel;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-public class SOStream extends SOStream03{
+public class SOStream extends SOStream02 {
 }
