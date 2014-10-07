@@ -13,44 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.serviceobject;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-public class Subscriptions {
-	/*
-	 * Subscriptions will have the form:
-	 * 
-	 *  {
-	 *     "subscriptions":
-	 *     [
-	 *         {
-	 *             "callback": "internal",
-	 *             "destination": "1372948414674add2a075fff14435814f74ad26855d43",
-	 *             "url": "avg",
-	 *             "auth-header": "API-KEY=XXX",
-	 *             "delay": 10,
-	 *             "expire": 3600
-	 *         }
-	 *     ]
-	 *  }
-	 */
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class SOChannel {
+	@JsonProperty("current-value")
+	private String currentValue;
+	private String unit;
+	private String type;
 	
-	public Subscriptions(){
-		
+	public String getCurrentValue() {
+		return currentValue;
+	}
+	public void setCurrentValue(String currentValue) {
+		this.currentValue = currentValue;
+	}
+	public String getUnit() {
+		return unit;
+	}
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type= type;
 	}
 	
-	ArrayList<Subscription> subscriptions;
-	public ArrayList<Subscription> getSubscriptions() {
-		return subscriptions;
-	}
-
-	public void setSubscriptions(ArrayList<Subscription> subscriptions) {
-		this.subscriptions = subscriptions;
-	}
-
 }

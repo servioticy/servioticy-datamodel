@@ -13,43 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.sensorupdate;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.ArrayList;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SOAction {
-	String name;
-	String description;
-	String group;
-	String action;	
+public class SensorUpdates {
+	public SensorUpdates(){
+		
+	}
 	
-	public String getName() {
-		return name;
+	ArrayList<SensorUpdate> data;
+	
+	public ArrayList<SensorUpdate> getData() {
+		return data;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getGroup() {
-		return group;
-	}
-	public void setGroup(String group) {
-		this.group = group;
-	}
-	public String getAction() {
-		return action;
-	}
-	public void setAction(String action) {
-		this.action = action;
+
+	public void setData(ArrayList<SensorUpdate> data) {
+		this.data = data;
 	}
 }

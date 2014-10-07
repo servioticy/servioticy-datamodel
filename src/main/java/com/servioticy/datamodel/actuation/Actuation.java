@@ -13,32 +13,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.actuation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOStream010 extends SOStream{
-	@JsonProperty("pre-filter")
-	private String preFilter;
-	@JsonProperty("post-filter")
-	private String postFilter;
+public class Actuation{
 
-	public String getPreFilter() {
-		return preFilter;
+//{
+//    "description": {
+//        "name": "reboot",
+//        "description": "Reboots the device"
+//    },
+//    "parameters": "{  // NOTE THIS IS A STRING
+//  	"param1": "foo",
+//  	"param2": "more foo"
+//	  }"
+//}
+	
+	private ActuationDescription description;
+	private String parameters;  // only important for the client
+	
+	
+	public ActuationDescription getDescription() {
+		return description;
 	}
-	public void setPreFilter(String preFilter) {
-		this.preFilter = preFilter;
+	public void setDescription(ActuationDescription description) {
+		this.description = description;
 	}
-	public String getPostFilter() {
-		return postFilter;
+	public String getParameters() {
+		return parameters;
 	}
-	public void setPostFilter(String postFilter) {
-		this.postFilter = postFilter;
+	public void setParameters(String parameters) {
+		this.parameters = parameters;
 	}
+
+
+	
 }

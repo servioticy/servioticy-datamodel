@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,29 +23,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOChannel {
-	@JsonProperty("current-value")
-	private String currentValue;
-	private String unit;
-	private String type;
-	
-	public String getCurrentValue() {
-		return currentValue;
+public class SOStream010 extends SOStream{
+	@JsonProperty("pre-filter")
+	private String preFilter;
+	@JsonProperty("post-filter")
+	private String postFilter;
+
+	public String getPreFilter() {
+		return preFilter;
 	}
-	public void setCurrentValue(String currentValue) {
-		this.currentValue = currentValue;
+	public void setPreFilter(String preFilter) {
+		this.preFilter = preFilter;
 	}
-	public String getUnit() {
-		return unit;
+	public String getPostFilter() {
+		return postFilter;
 	}
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setPostFilter(String postFilter) {
+		this.postFilter = postFilter;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type= type;
-	}
-	
 }

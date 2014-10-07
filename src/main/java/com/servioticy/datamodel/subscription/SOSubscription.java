@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.subscription;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,36 +22,41 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Actuation{
+public class SOSubscription extends Subscription{
+	private class SOSCustomFields{
+		private String groupId;
+		
+		public SOSCustomFields() {
+		}
 
-//{
-//    "description": {
-//        "name": "reboot",
-//        "description": "Reboots the device"
-//    },
-//    "parameters": "{  // NOTE THIS IS A STRING
-//  	"param1": "foo",
-//  	"param2": "more foo"
-//	  }"
-//}
-	
-	private ActuationDescription description;
-	private String parameters;  // only important for the client
-	
-	
-	public ActuationDescription getDescription() {
-		return description;
+		public String getGroupId() {
+			return groupId;
+		}
+
+		public void setGroupId(String groupId) {
+			this.groupId = groupId;
+		}
 	}
-	public void setDescription(ActuationDescription description) {
-		this.description = description;
+	private SOSCustomFields customFields;
+
+	public SOSCustomFields getCustomFields() {
+		return customFields;
 	}
-	public String getParameters() {
-		return parameters;
+	public void setCustomFields(SOSCustomFields customFields) {
+		this.customFields = customFields;
 	}
-	public void setParameters(String parameters) {
-		this.parameters = parameters;
+	
+	public String getGroupId() {
+		if(this.getCustomFields() == null){
+			return null;
+		}
+		return this.getCustomFields().getGroupId();
 	}
 
-
-	
+	public void setGroupId(String groupId) {
+		if(this.getCustomFields() == null){
+			this.setCustomFields(new SOSCustomFields());
+		}
+		this.getCustomFields().setGroupId(groupId);
+	}
 }

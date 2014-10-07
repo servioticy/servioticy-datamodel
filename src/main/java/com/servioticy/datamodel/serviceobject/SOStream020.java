@@ -12,35 +12,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
-package com.servioticy.datamodel;
+ ******************************************************************************/
+package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.ArrayList;
-
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
+ *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOGroup {
-	ArrayList<String> soIds;
-	String stream;
-	
-	public SOGroup(){
-	}
-	
-	public ArrayList<String> getSoIds() {
-		return soIds;
-	}
-	public void setSoIds(ArrayList<String> soIds) {
-		this.soIds = soIds;
-	}
-	public String getStream() {
-		return stream;
-	}
-	public void setStream(String stream) {
-		this.stream = stream;
-	}
+public class SOStream020 extends SOStream{
+
 }

@@ -13,34 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.actuation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SO010 extends SO {
-	ArrayList<LinkedHashMap<String, String>> aliases;
-	/**
-	 * @return the aliases
-	 */
-	public ArrayList<LinkedHashMap<String, String>> getAliases() {
-		return aliases;
+public class ActuationDescription{
+
+//	{
+//	        "name": "reboot",
+//	        "description": "Reboots the device",
+//	}	
+	
+	private String name;
+	private String description;
+	
+	public String getName() {
+		return name;
 	}
-	/**
-	 * @param aliases the aliases to set
-	 */
-	public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
-		this.aliases = aliases;
+	public void setName(String name) {
+		this.name = name;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

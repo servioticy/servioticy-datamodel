@@ -13,50 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOSubscription extends Subscription{
-	private class SOSCustomFields{
-		private String groupId;
-		
-		public SOSCustomFields() {
-		}
-
-		public String getGroupId() {
-			return groupId;
-		}
-
-		public void setGroupId(String groupId) {
-			this.groupId = groupId;
-		}
+public class SO010 extends SO {
+	ArrayList<LinkedHashMap<String, String>> aliases;
+	/**
+	 * @return the aliases
+	 */
+	public ArrayList<LinkedHashMap<String, String>> getAliases() {
+		return aliases;
 	}
-	private SOSCustomFields customFields;
-
-	public SOSCustomFields getCustomFields() {
-		return customFields;
-	}
-	public void setCustomFields(SOSCustomFields customFields) {
-		this.customFields = customFields;
-	}
-	
-	public String getGroupId() {
-		if(this.getCustomFields() == null){
-			return null;
-		}
-		return this.getCustomFields().getGroupId();
+	/**
+	 * @param aliases the aliases to set
+	 */
+	public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
+		this.aliases = aliases;
 	}
 
-	public void setGroupId(String groupId) {
-		if(this.getCustomFields() == null){
-			this.setCustomFields(new SOSCustomFields());
-		}
-		this.getCustomFields().setGroupId(groupId);
-	}
 }

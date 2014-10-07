@@ -12,18 +12,44 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/
-package com.servioticy.datamodel;
+ ******************************************************************************/ 
+package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import java.util.LinkedHashMap;
-
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- *
+ * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOStream020 extends SOStream{
-
+public class SOAction {
+	String name;
+	String description;
+	String group;
+	String action;	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getGroup() {
+		return group;
+	}
+	public void setGroup(String group) {
+		this.group = group;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
 }
