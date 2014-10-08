@@ -13,24 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package com.servioticy.datamodel.Reputation;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+package com.servioticy.datamodel.reputation;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- *
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.EXTERNAL_PROPERTY, property="type")
-@JsonSubTypes({
-        @JsonSubTypes.Type(value=SourceSOPubSub.class, name=Reputation.STREAM_SO_PUBSUB ),
-        @JsonSubTypes.Type(value=SourceSOService.class, name=Reputation.STREAM_SO_SERVICE),
-        @JsonSubTypes.Type(value=SourceSOSO.class, name=Reputation.STREAM_SO_SO),
-        @JsonSubTypes.Type(value=SourceSOUser.class, name=Reputation.STREAM_SO_USER),
-        @JsonSubTypes.Type(value=SourceWOSO.class, name=Reputation.STREAM_WO_SO)
-})
-public class ReputationAddress {
+public class ReputationAddressSO {
+    private String soid;
+    private String streamid;
+
+    public String getSoid() {
+        return soid;
+    }
+
+    public void setSoid(String soid) {
+        this.soid = soid;
+    }
 }
