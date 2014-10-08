@@ -49,6 +49,8 @@ public class SensorUpdate {
 
     private Long originId;
 
+    private Boolean composed;
+
     public ArrayList<ArrayList<String>> getTriggerPath() {
         return triggerPath;
     }
@@ -81,11 +83,19 @@ public class SensorUpdate {
         this.channels = channels;
     }
 
-    public long getLastUpdate() {
+    public Long getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(long lastUpdate) {
+    public void setLastUpdate(Long lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public Boolean getComposed() {
+        return composed;
+    }
+
+    public void setComposed(Boolean composed) {
+        this.composed = composed;
     }
 }
