@@ -32,13 +32,10 @@ public class Reputation {
 
     private Object src;
     private ReputationAddress dest;
-    private boolean event;
-    private long date;
+    private Boolean event;
+    private Long date;
     @JsonProperty("user_timestamp")
     private String userTimestamp;
-    @JsonProperty("newer_than_latest")
-    private boolean newerThanLatest;
-    private String suid;
 
     public Object getSrc() {
         return src;
@@ -56,7 +53,7 @@ public class Reputation {
         this.dest = dest;
     }
 
-    public boolean isEvent() {
+    public Boolean getEvent() {
         return event;
     }
 
@@ -64,7 +61,7 @@ public class Reputation {
         this.event = event;
     }
 
-    public long getDate() {
+    public Long getDate() {
         return date;
     }
 
@@ -80,19 +77,4 @@ public class Reputation {
         this.userTimestamp = userTimestamp;
     }
 
-    public boolean isNewerThanLatest() {
-        return newerThanLatest;
-    }
-
-    public void setNewerThanLatest(boolean newerThanLatest) {
-        this.newerThanLatest = newerThanLatest;
-    }
-
-    public String getSuid() {
-        return suid;
-    }
-
-    public void setSuid(String suid) {
-        this.suid = suid;
-    }
 }

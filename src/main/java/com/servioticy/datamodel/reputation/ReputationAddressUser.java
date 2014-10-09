@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  */
-public class ReputationAddressUser extends Reputation {
+public class ReputationAddressUser extends ReputationAddress {
     @JsonProperty("user_id")
     private String userId;
 

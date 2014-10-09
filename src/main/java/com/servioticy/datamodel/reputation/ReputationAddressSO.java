@@ -18,7 +18,7 @@ package com.servioticy.datamodel.reputation;
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  */
-public class ReputationAddressSO {
+public class ReputationAddressSO extends ReputationAddress {
     private String soid;
     private String streamid;
 
@@ -28,5 +28,13 @@ public class ReputationAddressSO {
 
     public void setSoid(String soid) {
         this.soid = soid;
+    }
+
+    public String getStreamid() {
+        return streamid;
+    }
+
+    public void setStreamid(String streamid) {
+        this.streamid = streamid;
     }
 }
