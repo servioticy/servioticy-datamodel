@@ -87,7 +87,7 @@ public class SensorUpdate {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Long lastUpdate) {
+    public void setLastUpdate(long lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 
