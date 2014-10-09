@@ -13,48 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOStream {
-	private LinkedHashMap<String, SOChannel> channels;
-	private String description;
-	@JsonProperty("pre-filter")
-	private String preFilter;
-	@JsonProperty("post-filter")
-	private String postFilter;
+public class SOGroup {
+	ArrayList<String> soIds;
+	String stream;
 	
-	public LinkedHashMap<String, SOChannel> getChannels() {
-		return channels;
+	public SOGroup(){
 	}
-	public void setChannels(LinkedHashMap<String, SOChannel> channels) {
-		this.channels = channels;
+	
+	public ArrayList<String> getSoIds() {
+		return soIds;
 	}
-	public String getDescription() {
-		return description;
+	public void setSoIds(ArrayList<String> soIds) {
+		this.soIds = soIds;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public String getStream() {
+		return stream;
 	}
-	public String getPreFilter() {
-		return preFilter;
-	}
-	public void setPreFilter(String preFilter) {
-		this.preFilter = preFilter;
-	}
-	public String getPostFilter() {
-		return postFilter;
-	}
-	public void setPostFilter(String postFilter) {
-		this.postFilter = postFilter;
+	public void setStream(String stream) {
+		this.stream = stream;
 	}
 }

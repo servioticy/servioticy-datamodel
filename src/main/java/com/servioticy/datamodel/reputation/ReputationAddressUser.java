@@ -12,40 +12,23 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
-package com.servioticy.datamodel;
+ ******************************************************************************/
+package com.servioticy.datamodel.reputation;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SOChannel {
-	@JsonProperty("current-value")
-	private String currentValue;
-	private String unit;
-	private String type;
-	
-	public String getCurrentValue() {
-		return currentValue;
-	}
-	public void setCurrentValue(String currentValue) {
-		this.currentValue = currentValue;
-	}
-	public String getUnit() {
-		return unit;
-	}
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type= type;
-	}
-	
+public class ReputationAddressUser extends ReputationAddress {
+    @JsonProperty("user_id")
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

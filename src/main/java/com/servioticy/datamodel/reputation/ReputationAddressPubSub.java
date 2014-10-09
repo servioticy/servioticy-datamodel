@@ -12,27 +12,23 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
-package com.servioticy.datamodel;
+ ******************************************************************************/
+package com.servioticy.datamodel.reputation;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
  */
-public class SensorUpdates {
-	public SensorUpdates(){
-		
-	}
-	
-	ArrayList<SensorUpdate> data;
-	
-	public ArrayList<SensorUpdate> getData() {
-		return data;
-	}
+public class ReputationAddressPubSub extends ReputationAddress {
+    @JsonProperty("pub_sub_topic")
+    private String pubSubTopic;
 
-	public void setData(ArrayList<SensorUpdate> data) {
-		this.data = data;
-	}
+    public String getPubSubTopic() {
+        return pubSubTopic;
+    }
+
+    public void setPubSubTopic(String pubSubTopic) {
+        this.pubSubTopic = pubSubTopic;
+    }
 }

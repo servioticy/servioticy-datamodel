@@ -15,6 +15,8 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import com.servioticy.datamodel.sensorupdate.SensorUpdate;
+
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 

@@ -13,44 +13,43 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.serviceobject;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-public class Subscriptions {
-	/*
-	 * Subscriptions will have the form:
-	 * 
-	 *  {
-	 *     "subscriptions":
-	 *     [
-	 *         {
-	 *             "callback": "internal",
-	 *             "destination": "1372948414674add2a075fff14435814f74ad26855d43",
-	 *             "url": "avg",
-	 *             "auth-header": "API-KEY=XXX",
-	 *             "delay": 10,
-	 *             "expire": 3600
-	 *         }
-	 *     ]
-	 *  }
-	 */
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class SOAction {
+	String name;
+	String description;
+	String group;
+	String action;	
 	
-	public Subscriptions(){
-		
+	public String getName() {
+		return name;
 	}
-	
-	ArrayList<Subscription> subscriptions;
-	public ArrayList<Subscription> getSubscriptions() {
-		return subscriptions;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public void setSubscriptions(ArrayList<Subscription> subscriptions) {
-		this.subscriptions = subscriptions;
+	public String getDescription() {
+		return description;
 	}
-
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getGroup() {
+		return group;
+	}
+	public void setGroup(String group) {
+		this.group = group;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
 }

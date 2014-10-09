@@ -13,34 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.sensorupdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOGroup {
-	ArrayList<String> soIds;
-	String stream;
+public class SUChannel{
+	@JsonProperty("current-value")
+	private Object currentValue;
+	private String unit;
 	
-	public SOGroup(){
+	public Object getCurrentValue() {
+		return currentValue;
 	}
-	
-	public ArrayList<String> getSoIds() {
-		return soIds;
+	public void setCurrentValue(Object currentValue) {
+		this.currentValue = currentValue;
 	}
-	public void setSoIds(ArrayList<String> soIds) {
-		this.soIds = soIds;
+	public String getUnit() {
+		return unit;
 	}
-	public String getStream() {
-		return stream;
-	}
-	public void setStream(String stream) {
-		this.stream = stream;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 }

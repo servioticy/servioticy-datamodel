@@ -12,32 +12,34 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
-package com.servioticy.datamodel;
+ ******************************************************************************/
+package com.servioticy.datamodel.reputation;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SUChannel{
-	@JsonProperty("current-value")
-	private Object currentValue;
-	private String unit;
-	
-	public Object getCurrentValue() {
-		return currentValue;
-	}
-	public void setCurrentValue(Object currentValue) {
-		this.currentValue = currentValue;
-	}
-	public String getUnit() {
-		return unit;
-	}
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
+public class ReputationAddressService extends ReputationAddress {
+    @JsonProperty("service_id")
+    private String serviceId;
+
+    @JsonProperty("on_behalf_of")
+    private String onBehalfOf;
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public String getOnBehalfOf() {
+        return onBehalfOf;
+    }
+
+    public void setOnBehalfOf(String onBehalfOf) {
+        this.onBehalfOf = onBehalfOf;
+    }
 }

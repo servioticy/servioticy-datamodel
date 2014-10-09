@@ -13,47 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.util.LinkedHashMap;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Actuation{
-
-//{
-//    "description": {
-//        "name": "reboot",
-//        "description": "Reboots the device"
-//    },
-//    "parameters": "{  // NOTE THIS IS A STRING
-//  	"param1": "foo",
-//  	"param2": "more foo"
-//	  }"
-//}
+public class SOChannel {
+	@JsonProperty("current-value")
+	private String currentValue;
+	private String unit;
+	private String type;
 	
-	private ActuationDescription description;
-	private String parameters;  // only important for the client
-	
-	
-	public ActuationDescription getDescription() {
-		return description;
+	public String getCurrentValue() {
+		return currentValue;
 	}
-	public void setDescription(ActuationDescription description) {
-		this.description = description;
+	public void setCurrentValue(String currentValue) {
+		this.currentValue = currentValue;
 	}
-	public String getParameters() {
-		return parameters;
+	public String getUnit() {
+		return unit;
 	}
-	public void setParameters(String parameters) {
-		this.parameters = parameters;
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
-
-
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type= type;
+	}
 	
 }

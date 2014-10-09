@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.sensorupdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -44,19 +44,19 @@ public class SensorUpdate {
 
     private Long lastUpdate;
 
-    private ArrayList<ArrayList<String>> streamsChain;
-    private ArrayList<Long> timestampChain;
+    private ArrayList<ArrayList<String>> triggerPath;
+    private ArrayList<Long> pathTimestamps;
 
     private Long originId;
 
-    private Object security;
+    private Boolean composed;
 
-    public ArrayList<ArrayList<String>> getStreamsChain() {
-        return streamsChain;
+    public ArrayList<ArrayList<String>> getTriggerPath() {
+        return triggerPath;
     }
 
-    public void setStreamsChain(ArrayList<ArrayList<String>> streamsChain) {
-        this.streamsChain = streamsChain;
+    public void setTriggerPath(ArrayList<ArrayList<String>> streamsChain) {
+        this.triggerPath = streamsChain;
     }
 
     public Long getOriginId() {
@@ -67,12 +67,12 @@ public class SensorUpdate {
         this.originId = originId;
     }
 
-    public ArrayList<Long> getTimestampChain() {
-        return timestampChain;
+    public ArrayList<Long> getPathTimestamps() {
+        return pathTimestamps;
     }
 
-    public void setTimestampChain(ArrayList<Long> timestampChain) {
-        this.timestampChain = timestampChain;
+    public void setPathTimestamps(ArrayList<Long> pathTimestamps) {
+        this.pathTimestamps = pathTimestamps;
     }
 
     public LinkedHashMap<String, SUChannel> getChannels() {
@@ -83,7 +83,7 @@ public class SensorUpdate {
         this.channels = channels;
     }
 
-    public long getLastUpdate() {
+    public Long getLastUpdate() {
         return lastUpdate;
     }
 
@@ -91,11 +91,11 @@ public class SensorUpdate {
         this.lastUpdate = lastUpdate;
     }
 
-    public Object getSecurity() {
-        return security;
+    public Boolean getComposed() {
+        return composed;
     }
 
-    public void setSecurity(Object security) {
-        this.security = security;
+    public void setComposed(Boolean composed) {
+        this.composed = composed;
     }
 }

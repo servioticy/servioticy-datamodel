@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel;
+package com.servioticy.datamodel.actuation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,34 +22,36 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SOAction {
-	String name;
-	String description;
-	String group;
-	String action;	
+public class Actuation{
+
+//{
+//    "description": {
+//        "name": "reboot",
+//        "description": "Reboots the device"
+//    },
+//    "parameters": "{  // NOTE THIS IS A STRING
+//  	"param1": "foo",
+//  	"param2": "more foo"
+//	  }"
+//}
 	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getDescription() {
+	private ActuationDescription description;
+	private String parameters;  // only important for the client
+	
+	
+	public ActuationDescription getDescription() {
 		return description;
 	}
-	public void setDescription(String description) {
+	public void setDescription(ActuationDescription description) {
 		this.description = description;
 	}
-	public String getGroup() {
-		return group;
+	public String getParameters() {
+		return parameters;
 	}
-	public void setGroup(String group) {
-		this.group = group;
+	public void setParameters(String parameters) {
+		this.parameters = parameters;
 	}
-	public String getAction() {
-		return action;
-	}
-	public void setAction(String action) {
-		this.action = action;
-	}
+
+
+	
 }
