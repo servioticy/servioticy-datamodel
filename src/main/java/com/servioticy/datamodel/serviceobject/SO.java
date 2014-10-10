@@ -46,6 +46,7 @@ public class SO{
     String description;
     LinkedHashMap<String, SOGroup> groups;
     LinkedHashMap<String, SOStream> streams;
+    Object security;
 
     //	LinkedHashMap<String, Object> queries;
     //	ArrayList<SOAction> actions;
@@ -98,6 +99,15 @@ public class SO{
     public void setStreams(LinkedHashMap<String, SOStream> streams) {
         this.streams = streams;
     }
+
+    public Object getSecurity() {
+        return security;
+    }
+
+    public void setSecurity(Object security) {
+        this.security = security;
+    }
+
     //	/**
 //	 * @return the queries
 //	 */
