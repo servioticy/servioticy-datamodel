@@ -30,12 +30,20 @@ public class Reputation {
     public static final String STREAM_SO_USER = "so-user";
     public static final String STREAM_SO_SERVICE = "so-service";
 
+    public static final String DISCARD_NONE = "none";
+    public static final String DISCARD_ERROR = "error";
+    public static final String DISCARD_TIMESTAMP = "timestamp";
+    public static final String DISCARD_FILTER = "filter";
+
     private Object src;
     private ReputationAddress dest;
     private Boolean event;
     private Long date;
     @JsonProperty("user_timestamp")
     private String userTimestamp;
+    private String discard;
+
+    private Boolean fresh;
 
     public Object getSrc() {
         return src;
@@ -77,4 +85,19 @@ public class Reputation {
         this.userTimestamp = userTimestamp;
     }
 
+    public String getDiscard() {
+        return discard;
+    }
+
+    public void setDiscard(String discard) {
+        this.discard = discard;
+    }
+
+    public Boolean getFresh() {
+        return fresh;
+    }
+
+    public void setFresh(boolean fresh) {
+        this.fresh = fresh;
+    }
 }
