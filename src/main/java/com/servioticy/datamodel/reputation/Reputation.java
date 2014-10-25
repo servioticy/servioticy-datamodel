@@ -40,7 +40,7 @@ public class Reputation {
     private Boolean event;
     private Long date;
     @JsonProperty("user_timestamp")
-    private String userTimestamp;
+    private Long userTimestamp;
     private String discard;
 
     private Boolean fresh;
@@ -77,11 +77,11 @@ public class Reputation {
         this.date = date;
     }
 
-    public String getUserTimestamp() {
+    public Long getUserTimestamp() {
         return userTimestamp;
     }
 
-    public void setUserTimestamp(String userTimestamp) {
+    public void setUserTimestamp(Long userTimestamp) {
         this.userTimestamp = userTimestamp;
     }
 
