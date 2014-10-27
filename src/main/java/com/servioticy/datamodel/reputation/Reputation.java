@@ -34,6 +34,7 @@ public class Reputation {
     public static final String DISCARD_ERROR = "error";
     public static final String DISCARD_TIMESTAMP = "timestamp";
     public static final String DISCARD_FILTER = "filter";
+    public static final String DISCARD_SECURITY = "security";
 
     private Object src;
     private ReputationAddress dest;
