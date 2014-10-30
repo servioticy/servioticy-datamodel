@@ -44,7 +44,7 @@ public class Reputation {
     private Long userTimestamp;
     private String discard;
 
-    private Boolean fresh;
+//    private Boolean fresh;
 
     public Object getSrc() {
         return src;
@@ -94,11 +94,11 @@ public class Reputation {
         this.discard = discard;
     }
 
-    public Boolean getFresh() {
-        return fresh;
-    }
-
-    public void setFresh(boolean fresh) {
-        this.fresh = fresh;
-    }
+//    public Boolean getFresh() {
+//        return fresh;
+//    }
+//
+//    public void setFresh(boolean fresh) {
+//        this.fresh = fresh;
+//    }
 }
