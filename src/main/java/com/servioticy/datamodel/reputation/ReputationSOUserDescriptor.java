@@ -33,7 +33,7 @@ import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 public class ReputationSOUserDescriptor {
     ReputationAddressSO src;
     ReputationAddressUser dest;
-    SensorUpdate su;
+    Long su;
 
     public ReputationAddressSO getSrc() {
         return src;
@@ -51,11 +51,11 @@ public class ReputationSOUserDescriptor {
         this.dest = dest;
     }
 
-    public SensorUpdate getSu() {
+    public Long getSu() {
         return su;
     }
 
-    public void setSu(SensorUpdate su) {
+    public void setSu(long su) {
         this.su = su;
     }
 }
