@@ -16,6 +16,7 @@
 package com.servioticy.datamodel.sensorupdate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -23,19 +24,20 @@ import java.util.LinkedHashMap;
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SensorUpdate {
 //	Stream location of the SO
 //	{
-//		"channels":{					
+//		"channels":{
 //			"latitude": {
-//				"current-value": 3.14159,		
-//				"unit": "degrees"				
+//				"current-value": 3.14159,
+//				"unit": "degrees"
 //			},
 //			"longitude": {
 //				"current-value": 2.11159,
-//				"unit": "degrees"						
-//			}									
+//				"unit": "degrees"
+//			}
 //		},
 //		"lastUpdate": 1199192939
 //	}
@@ -48,6 +50,10 @@ public class SensorUpdate {
     private ArrayList<Long> pathTimestamps;
 
     private Long originId;
+
+    private Boolean composed;
+
+    private Object security;
 
     public ArrayList<ArrayList<String>> getTriggerPath() {
         return triggerPath;
@@ -81,11 +87,27 @@ public class SensorUpdate {
         this.channels = channels;
     }
 
-    public long getLastUpdate() {
+    public Long getLastUpdate() {
         return lastUpdate;
     }
 
     public void setLastUpdate(long lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public Boolean getComposed() {
+        return composed;
+    }
+
+    public void setComposed(Boolean composed) {
+        this.composed = composed;
+    }
+
+    public Object getSecurity() {
+        return security;
+    }
+
+    public void setSecurity(Object security) {
+        this.security = security;
     }
 }
