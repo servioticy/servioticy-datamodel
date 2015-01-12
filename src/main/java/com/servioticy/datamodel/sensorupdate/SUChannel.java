@@ -18,7 +18,11 @@ package com.servioticy.datamodel.sensorupdate;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+import java.util.Objects;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
@@ -35,10 +39,17 @@ public class SUChannel{
 		if(currentValue == null){
 			throw new JsonGenerationException("'current-value' must be different from 'null'");
 		}
-		return currentValue;
+		return getCurrentValue();
 	}
 	public Object getCurrentValue() {
 		return currentValue;
+	}
+	@JsonSetter("current-value")
+	public void setNotNullCurrentValue(Object currentValue) throws JsonMappingException {
+		if(currentValue == null){
+			throw new JsonMappingException("'current-value' must be different from 'null'");
+		}
+		setCurrentValue(currentValue);
 	}
 	public void setCurrentValue(Object currentValue) {
 		this.currentValue = currentValue;

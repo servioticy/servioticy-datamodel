@@ -15,9 +15,9 @@
  ******************************************************************************/
 package com.servioticy.datamodel.serviceobject;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 import java.util.LinkedHashMap;
 
@@ -42,6 +42,20 @@ public class SOStream{
     }
     public void setChannels(LinkedHashMap<String, SOChannel> channels) {
         this.channels = channels;
+    }
+    @JsonGetter("channels")
+    public LinkedHashMap<String, SOChannel> getNotNullOrEmptyChannels() throws JsonGenerationException {
+        if(channels == null || channels.size() < 1){
+            throw new JsonGenerationException("At least one channel is required");
+        }
+        return getChannels();
+    }
+    @JsonSetter("channels")
+    public void setNotNullOrEmptyChannels(LinkedHashMap<String, SOChannel> channels) throws JsonMappingException {
+        if(channels == null || channels.size() < 1){
+            throw new JsonMappingException("At least one channel is required");
+        }
+        setChannels(channels);
     }
     public String getDescription() {
         return description;

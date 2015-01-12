@@ -15,10 +15,9 @@
  ******************************************************************************/
 package com.servioticy.datamodel.serviceobject;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 import java.util.LinkedHashMap;
 
@@ -36,6 +35,7 @@ import java.util.LinkedHashMap;
         @JsonSubTypes.Type(value=SO020.class, name=SO.V_0_2_0)
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SO{
     @JsonIgnore static final public String V_0_1_0 = "0.1.0";
     @JsonIgnore static final public String V_0_2_0 = "0.2.0";
@@ -98,6 +98,22 @@ public class SO{
     public void setStreams(LinkedHashMap<String, SOStream> streams) {
         this.streams = streams;
     }
+
+    @JsonGetter("streams")
+    public LinkedHashMap<String, SOStream> getNotNullOrEmptyStreams() throws JsonGenerationException {
+        if(streams == null || streams.size() < 1){
+            throw new JsonGenerationException("At least one stream is required");
+        }
+        return getStreams();
+    }
+    @JsonSetter("streams")
+    public void setNotNullOrEmptyStreams(LinkedHashMap<String, SOStream> streams) throws JsonMappingException {
+        if(streams == null || streams.size() < 1){
+            throw new JsonMappingException("At least one stream is required");
+        }
+        setStreams(streams);
+    }
+
     //	/**
 //	 * @return the queries
 //	 */
