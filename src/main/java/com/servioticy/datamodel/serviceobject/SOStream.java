@@ -33,6 +33,7 @@ import java.util.LinkedHashMap;
         @JsonSubTypes.Type(value=SOStream010.class)
 })
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SOStream{
     private LinkedHashMap<String, SOChannel> channels;
     private String description;
