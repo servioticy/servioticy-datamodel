@@ -27,6 +27,7 @@ import java.util.LinkedHashMap;
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SOStream{
     private LinkedHashMap<String, SOChannel> channels;
     private String description;

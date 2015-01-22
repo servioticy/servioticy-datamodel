@@ -16,6 +16,7 @@
 package com.servioticy.datamodel.serviceobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -23,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SOChannel {
 	@JsonProperty("current-value")
 	private String currentValue;
