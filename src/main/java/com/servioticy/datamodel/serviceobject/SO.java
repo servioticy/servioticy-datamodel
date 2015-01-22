@@ -22,7 +22,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.io.ObjectOutput;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -50,28 +49,13 @@ public class SO{
     String name;
     String description;
     LinkedHashMap<String, SOGroup> groups;
-    private LinkedHashMap<String, Object> streams;
-
-//    @JsonTypeInfo(
-//            use=JsonTypeInfo.Id.NAME,
-//            include=JsonTypeInfo.As.EXTERNAL_PROPERTY,
-//            property="version",
-//            defaultImpl = SOStream010.class
-//    )
-//    @JsonSubTypes( value = {
-//            @JsonSubTypes.Type(value=SOStream010.class, name=SO.V_0_1_0),
-//            @JsonSubTypes.Type(value=SOStream020.class, name=SO.V_0_2_0)
-//    })
+    private LinkedHashMap<String, Object> streamsRaw;
+    private LinkedHashMap<String, SOStream> streams;
 
     //	LinkedHashMap<String, Object> queries;
     //	ArrayList<SOAction> actions;
     //	LinkedHashMap<String, String> properties;
     //	LinkedHashMap<String, String> links;
-
-    @JsonCreator
-    public SO(){
-
-    }
 
     public String getVersion() {
         return version;
@@ -114,34 +98,40 @@ public class SO{
     }
 
     public LinkedHashMap<String, SOStream> getStreams(ObjectMapper mapper) {
+        if (this.streams != null){
+            return this.streams;
+        }
         if(this.getVersion().equals(SO.V_0_1_0)){
-            return mapper.convertValue(this.streams, new TypeReference<Map<String, SOStream010>>() {});
+            this.streams = mapper.convertValue(this.streamsRaw, new TypeReference<Map<String, SOStream010>>() {});
+            return this.streams;
         }
         else if(this.getVersion().equals(SO.V_0_2_0)){
-            return mapper.convertValue(this.streams, new TypeReference<Map<String, SOStream020>>() {});
+            this.streams = mapper.convertValue(this.streamsRaw, new TypeReference<Map<String, SOStream020>>() {});
+            return this.streams;
         }
-        return mapper.convertValue(this.streams, new TypeReference<Map<String, SOStream010>>() {});
+        return mapper.convertValue(this.streamsRaw, new TypeReference<Map<String, SOStream010>>() {});
     }
 
     public void setStreams(LinkedHashMap<String, SOStream> streams, ObjectMapper mapper) {
-        this.streams =
+        this.streams = streams;
+        this.streamsRaw =
                 (LinkedHashMap<String, Object>)
                         mapper.convertValue(streams, new TypeReference<Map<String, Object>>() {});
     }
 
     @JsonGetter("streams")
-    public LinkedHashMap<String, Object> getCheckStreams() throws JsonGenerationException {
-        if(this.streams == null || this.streams.size() < 1){
+    protected LinkedHashMap<String, Object> getCheckStreams() throws JsonGenerationException {
+        if(this.streamsRaw == null || this.streamsRaw.size() < 1){
             throw new JsonGenerationException("At least one stream is required");
         }
-        return this.streams;
+        return this.streamsRaw;
     }
     @JsonSetter("streams")
-    public void setCheckStreams(LinkedHashMap<String, Object> streams) throws IOException {
+    protected void setCheckStreams(LinkedHashMap<String, Object> streams) throws IOException {
         if(streams == null || streams.size() < 1){
             throw new JsonMappingException("At least one stream is required");
         }
-        this.streams = streams;
+        this.streamsRaw = streams;
     }
 
     //	/**
