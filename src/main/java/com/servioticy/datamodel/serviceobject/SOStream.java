@@ -25,13 +25,7 @@ import java.util.LinkedHashMap;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.EXTERNAL_PROPERTY, defaultImpl = SOStream010.class, property="version")
-@JsonSubTypes({
-        @JsonSubTypes.Type(value=SOStream010.class, name=SO.V_0_1_0),
-        @JsonSubTypes.Type(value=SOStream020.class, name=SO.V_0_2_0),
-        // Default version of SO
-        @JsonSubTypes.Type(value=SOStream010.class)
-})
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SOStream{
     private LinkedHashMap<String, SOChannel> channels;
