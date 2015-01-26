@@ -23,9 +23,6 @@ import java.util.LinkedHashMap;
  * 
  */
 public class HttpSubscription {
-	public class PSCustomFields{
-
-	}
 	private class HSCustomFields{
 		private LinkedHashMap <String, String> headers;
 		private String method;
