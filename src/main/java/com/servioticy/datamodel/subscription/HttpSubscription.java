@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-public class HttpSubscription {
+public class HttpSubscription extends Subscription{
 	private class HSCustomFields{
 		private LinkedHashMap <String, String> headers;
 		private String method;
@@ -63,7 +63,30 @@ public class HttpSubscription {
 	public HttpSubscription(){
 		
 	}
-	
+	public ArrayList<LinkedHashMap<String, String>> getAliases() {
+		if(this.getCustomFields() == null){
+			return null;
+		}
+		return this.getCustomFields().getAliases();
+	}
+	public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
+		if(this.getCustomFields() == null){
+			this.setCustomFields(new HSCustomFields());
+		}
+		this.getCustomFields().setAliases(aliases);
+	}
+	public String getBody() {
+		if(this.getCustomFields() == null){
+			return null;
+		}
+		return this.getCustomFields().getBody();
+	}
+	public void setBody(String body) {
+		if(this.getCustomFields() == null){
+			this.setCustomFields(new HSCustomFields());
+		}
+		this.getCustomFields().setBody(body);
+	}
 	public HSCustomFields getCustomFields() {
 		return customFields;
 	}
