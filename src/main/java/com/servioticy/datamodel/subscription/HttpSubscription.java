@@ -15,6 +15,7 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel.subscription;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 /**
@@ -22,14 +23,31 @@ import java.util.LinkedHashMap;
  * 
  */
 public class HttpSubscription extends PubSubSubscription {
-	private class HSCustomFields extends PubSubSubscription.PSCustomFields{
+	public class PSCustomFields{
+
+	}
+	private class HSCustomFields{
 		private LinkedHashMap <String, String> headers;
 		private String method;
-		
+		private ArrayList<LinkedHashMap<String, String>> aliases;
+		private String body;
+
 		public HSCustomFields(){
 			
 		}
-		
+
+		public ArrayList<LinkedHashMap<String, String>> getAliases() {
+			return aliases;
+		}
+		public void setAliases(ArrayList<LinkedHashMap<String, String>> aliases) {
+			this.aliases = aliases;
+		}
+		public String getBody() {
+			return body;
+		}
+		public void setBody(String body) {
+			this.body = body;
+		}
 		public LinkedHashMap<String, String> getHeaders() {
 			return headers;
 		}
