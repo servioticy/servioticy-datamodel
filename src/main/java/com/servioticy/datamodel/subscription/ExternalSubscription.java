@@ -22,6 +22,6 @@ import java.util.LinkedHashMap;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-public class PubSubSubscription extends Subscription{
+public class ExternalSubscription extends Subscription{
 	
 }
