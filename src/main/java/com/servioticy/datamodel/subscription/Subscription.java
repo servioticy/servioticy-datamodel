@@ -40,8 +40,8 @@ public class Subscription{
 	
 	private String callback; // Kind of subscription
 	private String id;
-//	private Long delay; // Not used (I believe)
-//	private Long expire; // Not used (I believe)
+//	private Long delay; // Not used
+//	private Long expire; // Not used
 	private String destination;
 	private Object customFields;
 
