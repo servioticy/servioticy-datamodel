@@ -28,13 +28,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="callback")
 @JsonSubTypes({
 	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_INTERNAL),
-    @JsonSubTypes.Type(value=HttpSubscription.class, name=Subscription.SUBS_HTTP),
     @JsonSubTypes.Type(value=ExternalSubscription.class, name=Subscription.SUBS_EXTERNAL),
 	@JsonSubTypes.Type(value=ServiceSubscription.class, name=Subscription.SUBS_SERVICE)
 })
 public class Subscription{
 	@JsonIgnore static final public String SUBS_INTERNAL = "internal";
-	@JsonIgnore static final public String SUBS_HTTP = "http";
 	@JsonIgnore static final public String SUBS_EXTERNAL = "pubsub";
 	@JsonIgnore static final public String SUBS_SERVICE = "service";
 	
