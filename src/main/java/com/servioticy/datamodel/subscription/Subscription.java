@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({
 	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_INTERNAL),
     @JsonSubTypes.Type(value=ExternalSubscription.class, name=Subscription.SUBS_EXTERNAL),
-	@JsonSubTypes.Type(value=ServiceSubscription.class, name=Subscription.SUBS_SERVICE)
+	@JsonSubTypes.Type(value=InternalSubscription.class, name=Subscription.SUBS_SERVICE)
 })
 public class Subscription{
 	@JsonIgnore static final public String SUBS_INTERNAL = "internal";
