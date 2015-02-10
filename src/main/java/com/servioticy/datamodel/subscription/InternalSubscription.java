@@ -19,5 +19,5 @@ package com.servioticy.datamodel.subscription;
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  *
  */
-public class InternalSubscription {
+public class InternalSubscription extends Subscription {
 }

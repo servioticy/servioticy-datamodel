@@ -27,14 +27,14 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="callback")
 @JsonSubTypes({
-	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_INTERNAL),
+	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_SO),
     @JsonSubTypes.Type(value=ExternalSubscription.class, name=Subscription.SUBS_EXTERNAL),
-	@JsonSubTypes.Type(value=InternalSubscription.class, name=Subscription.SUBS_SERVICE)
+	@JsonSubTypes.Type(value=InternalSubscription.class, name=Subscription.SUBS_INTERNAL)
 })
 public class Subscription{
-	@JsonIgnore static final public String SUBS_INTERNAL = "internal";
+	@JsonIgnore static final public String SUBS_SO = "internal";
 	@JsonIgnore static final public String SUBS_EXTERNAL = "pubsub";
-	@JsonIgnore static final public String SUBS_SERVICE = "service";
+	@JsonIgnore static final public String SUBS_INTERNAL = "service";
 	
 	private String callback; // Kind of subscription
 	private String id;
