@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright 2014 Barcelona Supercomputing Center (BSC)
+ * Copyright 2015 Barcelona Supercomputing Center (BSC)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,18 +12,12 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- ******************************************************************************/ 
-package com.servioticy.datamodel.serviceobject;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+ ******************************************************************************/
+package com.servioticy.datamodel.subscription;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
+ *
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class SO020 extends SO {
-    public SO020(){
-        this.setVersion(SO.V_0_2_0);
-    }
+public class InternalSubscription extends Subscription {
 }

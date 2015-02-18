@@ -15,7 +15,12 @@
  ******************************************************************************/
 package com.servioticy.datamodel.sensorupdate;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -23,26 +28,27 @@ import java.util.LinkedHashMap;
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SensorUpdate {
 //	Stream location of the SO
 //	{
-//		"channels":{					
+//		"channels":{
 //			"latitude": {
-//				"current-value": 3.14159,		
-//				"unit": "degrees"				
+//				"current-value": 3.14159,
+//				"unit": "degrees"
 //			},
 //			"longitude": {
 //				"current-value": 2.11159,
-//				"unit": "degrees"						
-//			}									
+//				"unit": "degrees"
+//			}
 //		},
 //		"lastUpdate": 1199192939
 //	}
 
     private LinkedHashMap<String, SUChannel> channels;
 
-    private Long lastUpdate;
+    private long lastUpdate;
 
     private ArrayList<ArrayList<String>> triggerPath;
     private ArrayList<Long> pathTimestamps;
@@ -81,6 +87,20 @@ public class SensorUpdate {
         return channels;
     }
 
+    @JsonGetter("channels")
+    public LinkedHashMap<String, SUChannel> getNotNullOrEmptyChannels() throws JsonGenerationException {
+        if(channels == null || channels.size() < 1){
+            throw new JsonGenerationException("At least one channel is required");
+        }
+        return getChannels();
+    }
+    @JsonSetter("channels")
+    public void setNotNullOrEmptyChannels(LinkedHashMap<String, SUChannel> channels) throws JsonMappingException {
+        if(channels == null || channels.size() < 1){
+            throw new JsonMappingException("At least one channel is required");
+        }
+        setChannels(channels);
+    }
     public void setChannels(LinkedHashMap<String, SUChannel> channels) {
         this.channels = channels;
     }

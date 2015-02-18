@@ -13,41 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/ 
-package com.servioticy.datamodel.serviceobject;
+package com.servioticy.datamodel.subscription;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class SOChannel {
-	@JsonProperty("current-value")
-	private String currentValue;
-	private String unit;
-	private String type;
-	
-	public String getCurrentValue() {
-		return currentValue;
-	}
-	public void setCurrentValue(String currentValue) {
-		this.currentValue = currentValue;
-	}
-	public String getUnit() {
-		return unit;
-	}
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type= type;
-	}
+public class ExternalSubscription extends Subscription{
 	
 }

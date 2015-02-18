@@ -15,21 +15,39 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel.sensorupdate;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
+import java.util.Objects;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
- * 
+ *
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SUChannel{
 	@JsonProperty("current-value")
 	private Object currentValue;
 	private String unit;
-	
+
+	@JsonGetter("current-value")
+	public Object getNotNullCurrentValue() throws JsonGenerationException {
+		if(currentValue == null){
+			throw new JsonGenerationException("'current-value' must be different from 'null'");
+		}
+		return getCurrentValue();
+	}
 	public Object getCurrentValue() {
 		return currentValue;
+	}
+	@JsonSetter("current-value")
+	public void setNotNullCurrentValue(Object currentValue) throws JsonMappingException {
+		if(currentValue == null){
+			throw new JsonMappingException("'current-value' must be different from 'null'");
+		}
+		setCurrentValue(currentValue);
 	}
 	public void setCurrentValue(Object currentValue) {
 		this.currentValue = currentValue;
