@@ -21,7 +21,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
@@ -49,6 +51,7 @@ public class SO{
     LinkedHashMap<String, SOGroup> groups;
     private LinkedHashMap<String, Object> streamsRaw;
     private LinkedHashMap<String, SOStream> streams;
+    Object security;
 
     //	LinkedHashMap<String, Object> queries;
     //	ArrayList<SOAction> actions;
