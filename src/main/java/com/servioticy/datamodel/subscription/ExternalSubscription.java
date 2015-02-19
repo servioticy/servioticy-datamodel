@@ -23,5 +23,13 @@ import java.util.LinkedHashMap;
  * 
  */
 public class ExternalSubscription extends Subscription{
-	
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

@@ -36,7 +36,7 @@ public class Reputation {
     public static final String DISCARD_FILTER = "filter";
     public static final String DISCARD_SECURITY = "security";
 
-    private Object src;
+    private ReputationAddress src;
     private ReputationAddress dest;
     private Boolean event;
     private Long date;
@@ -46,11 +46,11 @@ public class Reputation {
 
 //    private Boolean fresh;
 
-    public Object getSrc() {
+    public ReputationAddress getSrc() {
         return src;
     }
 
-    public void setSrc(Object src) {
+    public void setSrc(ReputationAddress src) {
         this.src = src;
     }
 
