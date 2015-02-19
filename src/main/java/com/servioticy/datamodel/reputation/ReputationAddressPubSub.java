@@ -24,6 +24,17 @@ public class ReputationAddressPubSub extends ReputationAddress {
     @JsonProperty("pub_sub_topic")
     private String pubSubTopic;
 
+    @JsonProperty("on_behalf_of")
+    private String onBehalfOf;
+
+    public String getOnBehalfOf() {
+        return onBehalfOf;
+    }
+
+    public void setOnBehalfOf(String onBehalfOf) {
+        this.onBehalfOf = onBehalfOf;
+    }
+
     public String getPubSubTopic() {
         return pubSubTopic;
     }

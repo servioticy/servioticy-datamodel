@@ -39,6 +39,7 @@ public class Reputation {
     private ReputationAddress src;
     private ReputationAddress dest;
     private Boolean event;
+    private Boolean internalPublisher;
     private Long date;
     @JsonProperty("user_timestamp")
     private Long userTimestamp;
@@ -68,6 +69,14 @@ public class Reputation {
 
     public void setEvent(boolean event) {
         this.event = event;
+    }
+
+    public Boolean getInternalPublisher() {
+        return internalPublisher;
+    }
+
+    public void setInternalPublisher(Boolean internalPublisher) {
+        this.internalPublisher = internalPublisher;
     }
 
     public Long getDate() {
