@@ -22,7 +22,6 @@ import com.servioticy.datamodel.sensorupdate.SensorUpdate;
  * 
  */
 public class UpdateDescriptor {
-	String opid;
 	String soid;
 	String streamid;
 	SensorUpdate su;
@@ -30,19 +29,7 @@ public class UpdateDescriptor {
 	public UpdateDescriptor(){
 		
 	}
-	
-	/**
-	 * @return the opid
-	 */
-	public String getOpid() {
-		return opid;
-	}
-	/**
-	 * @param opid the opid to set
-	 */
-	public void setOpid(String opid) {
-		this.opid = opid;
-	}
+
 	/**
 	 * @return the soid
 	 */
