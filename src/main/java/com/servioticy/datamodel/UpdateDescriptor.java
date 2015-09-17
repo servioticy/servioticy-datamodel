@@ -15,12 +15,14 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateDescriptor {
 	String soid;
 	String streamid;
