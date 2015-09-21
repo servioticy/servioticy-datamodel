@@ -15,33 +15,21 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateDescriptor {
-	String opid;
 	String soid;
 	String streamid;
 	SensorUpdate su;
 	
 	public UpdateDescriptor(){
 		
-	}
-	
-	/**
-	 * @return the opid
-	 */
-	public String getOpid() {
-		return opid;
-	}
-	/**
-	 * @param opid the opid to set
-	 */
-	public void setOpid(String opid) {
-		this.opid = opid;
 	}
 	/**
 	 * @return the soid
