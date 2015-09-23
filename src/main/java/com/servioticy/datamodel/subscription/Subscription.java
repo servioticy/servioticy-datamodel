@@ -27,19 +27,19 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="callback")
 @JsonSubTypes({
-	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_SO),
-    @JsonSubTypes.Type(value=ExternalSubscription.class, name=Subscription.SUBS_EXTERNAL),
-	@JsonSubTypes.Type(value=InternalSubscription.class, name=Subscription.SUBS_INTERNAL)
+	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_INTERNAL),
+    @JsonSubTypes.Type(value=HttpSubscription.class, name=Subscription.SUBS_HTTP),
+    @JsonSubTypes.Type(value=PubSubSubscription.class, name=Subscription.SUBS_PUBSUB)
 })
 public class Subscription{
-	@JsonIgnore static final public String SUBS_SO = "internal";
-	@JsonIgnore static final public String SUBS_EXTERNAL = "pubsub";
-	@JsonIgnore static final public String SUBS_INTERNAL = "service";
+	@JsonIgnore static final public String SUBS_INTERNAL = "internal";
+	@JsonIgnore static final public String SUBS_HTTP = "http";
+	@JsonIgnore static final public String SUBS_PUBSUB = "pubsub";
 	
 	private String callback; // Kind of subscription
 	private String id;
-//	private Long delay; // Not used
-//	private Long expire; // Not used
+//	private Long delay; // Not used (I believe)
+//	private Long expire; // Not used (I believe)
 	private String destination;
 	private Object customFields;
 
