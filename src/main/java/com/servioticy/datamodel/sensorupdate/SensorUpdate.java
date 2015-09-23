@@ -46,6 +46,8 @@ public class SensorUpdate {
 //		"lastUpdate": 1199192939
 //	}
 
+
+    private LinkedHashMap<String, Long> stageStartTS;
     private LinkedHashMap<String, SUChannel> channels;
 
     private long lastUpdate;
@@ -127,5 +129,13 @@ public class SensorUpdate {
 
     public void setSecurity(Object security) {
         this.security = security;
+    }
+
+    public LinkedHashMap<String, Long> getStageStartTS() {
+        return stageStartTS;
+    }
+
+    public void setStageStartTS(LinkedHashMap<String, Long> stageStartTS) {
+        this.stageStartTS = stageStartTS;
     }
 }
