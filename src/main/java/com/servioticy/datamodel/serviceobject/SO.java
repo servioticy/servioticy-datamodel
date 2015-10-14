@@ -51,7 +51,6 @@ public class SO{
     LinkedHashMap<String, SOGroup> groups;
     private LinkedHashMap<String, Object> streamsRaw;
     private LinkedHashMap<String, SOStream> streams;
-    Object security;
 
     //	LinkedHashMap<String, Object> queries;
     //	ArrayList<SOAction> actions;
@@ -132,14 +131,6 @@ public class SO{
             throw new JsonMappingException("At least one stream is required");
         }
         this.streamsRaw = streams;
-    }
-
-    public Object getSecurity() {
-        return security;
-    }
-
-    public void setSecurity(Object security) {
-        this.security = security;
     }
 
     //	/**
