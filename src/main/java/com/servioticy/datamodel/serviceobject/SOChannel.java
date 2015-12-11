@@ -30,6 +30,7 @@ public class SOChannel {
 	private String currentValue;
 	private String unit;
 	private String type;
+	private String language;
 	
 	public String getCurrentValue() {
 		return currentValue;
@@ -49,5 +50,10 @@ public class SOChannel {
 	public void setType(String type) {
 		this.type= type;
 	}
-	
+	public String getLanguage() {
+		return language;
+	}
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 }
