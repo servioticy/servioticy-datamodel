@@ -50,22 +50,13 @@ public class SensorUpdate {
 
     private long lastUpdate;
 
-    private ArrayList<ArrayList<String>> triggerPath;
-    private ArrayList<Long> pathTimestamps;
-
     private Long originId;
 
     private Boolean composed;
 
     private Object security;
 
-    public ArrayList<ArrayList<String>> getTriggerPath() {
-        return triggerPath;
-    }
-
-    public void setTriggerPath(ArrayList<ArrayList<String>> streamsChain) {
-        this.triggerPath = streamsChain;
-    }
+    private ArrayList<ArrayList<ProvenanceUnit>> provenance;
 
     public Long getOriginId() {
         return originId;
@@ -73,14 +64,6 @@ public class SensorUpdate {
 
     public void setOriginId(Long originId) {
         this.originId = originId;
-    }
-
-    public ArrayList<Long> getPathTimestamps() {
-        return pathTimestamps;
-    }
-
-    public void setPathTimestamps(ArrayList<Long> pathTimestamps) {
-        this.pathTimestamps = pathTimestamps;
     }
 
     public LinkedHashMap<String, SUChannel> getChannels() {
@@ -127,5 +110,13 @@ public class SensorUpdate {
 
     public void setSecurity(Object security) {
         this.security = security;
+    }
+
+    public ArrayList<ArrayList<ProvenanceUnit>> getProvenance() {
+        return provenance;
+    }
+
+    public void setProvenance(ArrayList<ArrayList<ProvenanceUnit>> provenance) {
+        this.provenance = provenance;
     }
 }
