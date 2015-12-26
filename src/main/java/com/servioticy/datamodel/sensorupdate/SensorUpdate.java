@@ -54,8 +54,6 @@ public class SensorUpdate {
 
     private Boolean composed;
 
-    private Object security;
-
     private ArrayList<ArrayList<ProvenanceUnit>> provenance;
 
     public Long getOriginId() {
@@ -102,14 +100,6 @@ public class SensorUpdate {
 
     public void setComposed(Boolean composed) {
         this.composed = composed;
-    }
-
-    public Object getSecurity() {
-        return security;
-    }
-
-    public void setSecurity(Object security) {
-        this.security = security;
     }
 
     public ArrayList<ArrayList<ProvenanceUnit>> getProvenance() {
