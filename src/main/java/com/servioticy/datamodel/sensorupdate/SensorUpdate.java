@@ -52,7 +52,6 @@ public class SensorUpdate {
 
     private Long originId;
 
-    private Boolean composed;
 
     private ArrayList<ArrayList<ProvenanceUnit>> provenance;
 
@@ -92,14 +91,6 @@ public class SensorUpdate {
 
     public void setLastUpdate(long lastUpdate) {
         this.lastUpdate = lastUpdate;
-    }
-
-    public Boolean getComposed() {
-        return composed;
-    }
-
-    public void setComposed(Boolean composed) {
-        this.composed = composed;
     }
 
     public ArrayList<ArrayList<ProvenanceUnit>> getProvenance() {

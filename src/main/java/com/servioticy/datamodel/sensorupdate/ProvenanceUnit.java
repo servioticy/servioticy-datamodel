@@ -5,11 +5,15 @@ package com.servioticy.datamodel.sensorupdate;
  */
 public class ProvenanceUnit {
     public ProvenanceUnit(){};
-    public ProvenanceUnit(String soId, String streamId,Long timestamp){
-
+    public ProvenanceUnit(String soId, String streamId, String suId, Long timestamp){
+        this.setSoId(soId);
+        this.setStreamId(streamId);
+        this.setSuId(suId);
+        this.setTimestamp(timestamp);
     }
     String soId;
     String streamId;
+    String suId;
     long timestamp;
 
     public String getSoId() {
@@ -26,6 +30,14 @@ public class ProvenanceUnit {
 
     public void setStreamId(String streamId) {
         this.streamId = streamId;
+    }
+
+    public String getSuId() {
+        return suId;
+    }
+
+    public void setSuId(String suId) {
+        this.suId = suId;
     }
 
     public Long getTimestamp() {
