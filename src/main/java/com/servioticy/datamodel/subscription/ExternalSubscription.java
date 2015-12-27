@@ -15,9 +15,6 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel.subscription;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 

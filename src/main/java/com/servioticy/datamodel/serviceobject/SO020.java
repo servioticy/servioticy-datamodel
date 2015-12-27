@@ -24,6 +24,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SO020 extends SO {
     public SO020(){
-        this.setVersion(SO.V_0_2_0);
+        this.setVersion(V_0_2_0);
     }
 }

@@ -100,4 +100,17 @@ public class SensorUpdate {
     public void setProvenance(ArrayList<ArrayList<ProvenanceUnit>> provenance) {
         this.provenance = provenance;
     }
+
+    public String getSoId(){
+        return this.getProvenance().get(0).get(0).getSoId();
+    }
+
+    public String getStreamId(){
+        return this.getProvenance().get(0).get(0).getStreamId();
+    }
+
+    // TODO The suId generation should be a shared method with the API
+    public String getId(){
+        return getSoId() + "-" + getStreamId() + "-" + getLastUpdate();
+    }
 }

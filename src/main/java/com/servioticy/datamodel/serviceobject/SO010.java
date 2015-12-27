@@ -28,7 +28,7 @@ import java.util.LinkedHashMap;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SO010 extends SO {
 	public SO010(){
-		this.setVersion(SO.V_0_1_0);
+		this.setVersion(V_0_1_0);
 	}
 	ArrayList<LinkedHashMap<String, String>> aliases;
 	/**
