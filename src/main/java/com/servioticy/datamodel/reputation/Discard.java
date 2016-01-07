@@ -9,6 +9,7 @@ public class Discard {
     public static final String REASON_COMPOSITION_ERROR = "composition_error";
     public static final String REASON_OLD_TRIGGER = "old_trigger";
     public static final String REASON_FILTERED = "filtered";
+    public static final String REASON_NO_AUTH = "no_auth";
 
     String reason;
     String message;
