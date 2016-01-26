@@ -15,10 +15,7 @@
  ******************************************************************************/
 package com.servioticy.datamodel.sensorupdate;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -101,15 +98,17 @@ public class SensorUpdate {
         this.provenance = provenance;
     }
 
+    @JsonIgnore
     public String getSoId(){
         return this.getProvenance().get(0).get(0).getSoId();
     }
-
+    @JsonIgnore
     public String getStreamId(){
         return this.getProvenance().get(0).get(0).getStreamId();
     }
 
     // TODO The suId generation should be a shared method with the API
+    @JsonIgnore
     public String getId(){
         return getSoId() + "-" + getStreamId() + "-" + getLastUpdate();
     }
