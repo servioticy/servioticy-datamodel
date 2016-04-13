@@ -49,7 +49,7 @@ public class Pair{
         this.rm = rm;
     }
 
-    public Long getMinTS(){
+    public Long minTS(){
         return lm == null ? rm : lm;
     }
 }
