@@ -3,14 +3,18 @@ package com.servioticy.datamodel.sensorupdate;
 public class Pair{
     private SensorUpdate l;
     private SensorUpdate r;
+    private Long lm;
+    private Long rm;
 
     public Pair(){
 
     }
 
-    public Pair(SensorUpdate l, SensorUpdate r) {
-        this.l = l;
-        this.r = r;
+    public Pair(SensorUpdate left, SensorUpdate right, Long leftMinTS, Long rightMinTS) {
+        this.l = left;
+        this.r = right;
+        this.lm = leftMinTS;
+        this.rm = rightMinTS;
     }
 
     public SensorUpdate getL() {
@@ -29,4 +33,23 @@ public class Pair{
         this.r = r;
     }
 
+    public Long getLm() {
+        return lm;
+    }
+
+    public void setLm(Long lm) {
+        this.lm = lm;
+    }
+
+    public Long getRm() {
+        return rm;
+    }
+
+    public void setRm(Long rm) {
+        this.rm = rm;
+    }
+
+    public Long getMinTS(){
+        return lm == null ? rm : lm;
+    }
 }
