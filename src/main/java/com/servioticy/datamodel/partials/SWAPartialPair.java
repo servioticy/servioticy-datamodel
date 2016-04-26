@@ -1,10 +1,18 @@
 package com.servioticy.datamodel.partials;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class SWAPartialPair {
+    @JsonIgnore
+    public static final ObjectReader reader = new ObjectMapper().reader(SWAPartialPair.class);
+    @JsonIgnore
+    public static final ObjectWriter writer = new ObjectMapper().writer();
     @JsonProperty("l")
     private SWAPartial left;
     @JsonProperty("r")
