@@ -1,14 +1,22 @@
 package com.servioticy.datamodel.partials;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
  * Created by alvaro on 15/04/16.
  */
 public class SWAPartial {
+    @JsonIgnore
+    public static final ObjectReader reader = new ObjectMapper().reader(SWAPartial.class);
+    @JsonIgnore
+    public static final ObjectWriter writer = new ObjectMapper().writer();
     @JsonProperty("u")
     private SensorUpdate sensorUpdate;
     @JsonProperty("m")
