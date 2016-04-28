@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class SWAPartialPair {
     @JsonIgnore
+    private String id;
     public static final ObjectReader reader = new ObjectMapper().reader(SWAPartialPair.class);
     @JsonIgnore
     public static final ObjectWriter writer = new ObjectMapper().writer();
@@ -46,13 +47,30 @@ public class SWAPartialPair {
         this.right = right;
     }
 
+    @JsonIgnore
     public Long minTimestamp(){
         return this.left == null ? this.right.getMinTimestamp() : this.left.getMinTimestamp();
     }
 
+    @JsonIgnore
     public Long maxTimestamp(){
         return this.right == null ?
                 this.left.getSensorUpdate().getLastUpdate() :
                 this.right.getSensorUpdate().getLastUpdate();
+    }
+
+    @JsonIgnore
+    public String getId(){
+        return this.id;
+    }
+
+    @JsonIgnore
+    public void setId(String id){
+        this.id = id;
+    }
+
+    @JsonIgnore
+    public long getIndex(){
+        return Long.decode("#" + this.id.split("::")[2]);
     }
 }
