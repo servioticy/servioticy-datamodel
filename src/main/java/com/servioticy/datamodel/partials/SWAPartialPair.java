@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 public class SWAPartialPair {
     @JsonIgnore
     private String id;
+    @JsonIgnore
     public static final ObjectReader reader = new ObjectMapper().reader(SWAPartialPair.class);
     @JsonIgnore
     public static final ObjectWriter writer = new ObjectMapper().writer();
