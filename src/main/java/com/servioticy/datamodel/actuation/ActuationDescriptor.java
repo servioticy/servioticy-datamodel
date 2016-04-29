@@ -15,14 +15,20 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel.actuation;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.servioticy.datamodel.Mapper;
+import com.servioticy.datamodel.UpdateDescriptor;
 
 /**
  * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ActuationDescriptor {
+public class ActuationDescriptor extends Mapper{
+	@JsonIgnore
+	public static final ObjectReader reader = mapper.reader(UpdateDescriptor.class);
 	
 //	{
 //	    "soid": "1398115616876579c012faaa646c4ab5b2ab039653270",

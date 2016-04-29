@@ -4,34 +4,38 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.servioticy.datamodel.Mapper;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
  * Created by alvaro on 15/04/16.
  */
-public class SWAPartial {
+public class SWAPartial extends Mapper {
     @JsonIgnore
-    public static final ObjectReader reader = new ObjectMapper().reader(SWAPartial.class);
-    @JsonIgnore
-    public static final ObjectWriter writer = new ObjectMapper().writer();
+    public static final ObjectReader reader = mapper.reader(SWAPartial.class);
     @JsonProperty("u")
     private SensorUpdate sensorUpdate;
     @JsonProperty("m")
     private Long minTimestamp;
     @JsonProperty("c")
     private int count;
+    @JsonProperty("ckv")
+    private int countKalmanValue;
+    @JsonProperty("cke")
+    private Double countKalmanError;
 
     public SWAPartial(){
 
     }
 
-    public SWAPartial(SensorUpdate sensorUpdate, Long minTimestamp, int count){
+    public SWAPartial(SensorUpdate sensorUpdate, Long minTimestamp, int count, int countKalmanValue,
+                      double countKalmanError){
         this.sensorUpdate = sensorUpdate;
         this.minTimestamp = minTimestamp;
         this.count = count;
+        this.countKalmanValue = countKalmanValue;
+        this.countKalmanError = countKalmanError;
     }
 
     @JsonGetter("u")
@@ -62,5 +66,29 @@ public class SWAPartial {
     @JsonSetter("c")
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public static ObjectReader getReader() {
+        return reader;
+    }
+
+    @JsonGetter("ckv")
+    public int getCountKalmanValue() {
+        return countKalmanValue;
+    }
+
+    @JsonSetter("ckv")
+    public void setCountKalmanValue(int countKalmanValue) {
+        this.countKalmanValue = countKalmanValue;
+    }
+
+    @JsonGetter("cke")
+    public Double getCountKalmanError() {
+        return countKalmanError;
+    }
+
+    @JsonSetter("cke")
+    public void setCountKalmanError(Double countKalmanError) {
+        this.countKalmanError = countKalmanError;
     }
 }

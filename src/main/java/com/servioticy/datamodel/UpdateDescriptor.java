@@ -15,7 +15,9 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectReader;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
@@ -23,7 +25,9 @@ import com.servioticy.datamodel.sensorupdate.SensorUpdate;
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UpdateDescriptor {
+public class UpdateDescriptor extends Mapper {
+	@JsonIgnore
+	public static final ObjectReader reader = mapper.reader(UpdateDescriptor.class);
 	String soid;
 	String streamid;
 	SensorUpdate su;

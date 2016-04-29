@@ -4,17 +4,14 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
-import com.fasterxml.jackson.databind.ObjectWriter;
+import com.servioticy.datamodel.Mapper;
 
-public class SWAPartialPair {
+public class SWAPartialPair extends Mapper {
+    @JsonIgnore
+    public static final ObjectReader reader = mapper.reader(SWAPartialPair.class);
     @JsonIgnore
     private String id;
-    @JsonIgnore
-    public static final ObjectReader reader = new ObjectMapper().reader(SWAPartialPair.class);
-    @JsonIgnore
-    public static final ObjectWriter writer = new ObjectMapper().writer();
     @JsonProperty("l")
     private SWAPartial left;
     @JsonProperty("r")
