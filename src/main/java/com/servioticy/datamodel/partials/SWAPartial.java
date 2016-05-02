@@ -21,15 +21,15 @@ public class SWAPartial extends Mapper {
     @JsonProperty("c")
     private int count;
     @JsonProperty("ckv")
-    private int countKalmanValue;
+    private double countKalmanValue;
     @JsonProperty("cke")
-    private Double countKalmanError;
+    private double countKalmanError;
 
     public SWAPartial(){
 
     }
 
-    public SWAPartial(SensorUpdate sensorUpdate, Long minTimestamp, int count, int countKalmanValue,
+    public SWAPartial(SensorUpdate sensorUpdate, Long minTimestamp, int count, double countKalmanValue,
                       double countKalmanError){
         this.sensorUpdate = sensorUpdate;
         this.minTimestamp = minTimestamp;
@@ -73,12 +73,12 @@ public class SWAPartial extends Mapper {
     }
 
     @JsonGetter("ckv")
-    public int getCountKalmanValue() {
+    public Double getCountKalmanValue() {
         return countKalmanValue;
     }
 
     @JsonSetter("ckv")
-    public void setCountKalmanValue(int countKalmanValue) {
+    public void setCountKalmanValue(double countKalmanValue) {
         this.countKalmanValue = countKalmanValue;
     }
 
