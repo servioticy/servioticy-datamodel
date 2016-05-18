@@ -9,7 +9,7 @@ import com.servioticy.datamodel.Mapper;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
- * Created by alvaro on 15/04/16.
+ * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 15/04/16.
  */
 public class SWAPartial extends Mapper {
     @JsonIgnore
