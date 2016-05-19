@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 /**
- * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 18/05/16.
+ * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -16,8 +16,6 @@ public class Section {
     public static final String TYPE_COMPOSE = "compose";
     @JsonIgnore
     public static final String TYPE_SW_AGGREGATOR = "swaggregate";
-    @JsonIgnore
-    public static final String TYPE_MERGE = "merge";
     private List<String> args;
     private String type;
     private String func;
@@ -34,7 +32,6 @@ public class Section {
         switch (type){
             case TYPE_COMPOSE:
             case TYPE_SW_AGGREGATOR:
-            case TYPE_MERGE:
                 return type;
             default:
                 return null;
@@ -45,7 +42,6 @@ public class Section {
         switch (type){
             case TYPE_COMPOSE:
             case TYPE_SW_AGGREGATOR:
-            case TYPE_MERGE:
                 this.type = type;
                 break;
             default:

@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.util.Objects;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  *
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 
 /**
- * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 18/05/16.
+ * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)

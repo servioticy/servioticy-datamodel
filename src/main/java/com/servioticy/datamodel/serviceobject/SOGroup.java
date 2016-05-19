@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

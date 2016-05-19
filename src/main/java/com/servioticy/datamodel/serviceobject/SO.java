@@ -26,7 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  *
  */
 @JsonTypeInfo(

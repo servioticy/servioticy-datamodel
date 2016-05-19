@@ -3,7 +3,7 @@ package com.servioticy.datamodel.stream;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 18/05/16.
+ * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
  */
 public class Metadata extends Channel {
     private Object value;

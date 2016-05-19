@@ -22,13 +22,13 @@ import com.servioticy.datamodel.Mapper;
 import com.servioticy.datamodel.UpdateDescriptor;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ActuationDescriptor extends Mapper{
 	@JsonIgnore
-	public static final ObjectReader reader = mapper.reader(UpdateDescriptor.class);
+	public static final ObjectReader jsonReader = jsonMapper.readerFor(UpdateDescriptor.class);
 	
 //	{
 //	    "soid": "1398115616876579c012faaa646c4ab5b2ab039653270",

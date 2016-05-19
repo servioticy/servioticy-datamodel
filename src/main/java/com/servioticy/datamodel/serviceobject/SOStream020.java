@@ -18,7 +18,7 @@ package com.servioticy.datamodel.serviceobject;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

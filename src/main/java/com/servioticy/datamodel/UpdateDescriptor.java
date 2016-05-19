@@ -18,59 +18,53 @@ package com.servioticy.datamodel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectReader;
-import com.servioticy.datamodel.sensorupdate.SensorUpdate;
+import com.servioticy.datamodel.stream.Stream;
+import com.servioticy.datamodel.update.Update;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UpdateDescriptor extends Mapper {
 	@JsonIgnore
-	public static final ObjectReader reader = mapper.reader(UpdateDescriptor.class);
-	String soid;
-	String streamid;
-	SensorUpdate su;
-	
-	public UpdateDescriptor(){
-		
+	public static final ObjectReader jsonReader = jsonMapper.readerFor(UpdateDescriptor.class);
+	@JsonIgnore
+	public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
+	private Update update;
+	private String destination;
+	private String sectionId;
+	private String arg;
+
+	public Update getUpdate() {
+		return update;
 	}
-	/**
-	 * @return the soid
-	 */
-	public String getSoid() {
-		return soid;
+
+	public void setUpdate(Update update) {
+		this.update = update;
 	}
-	/**
-	 * @param soid the soid to set
-	 */
-	public void setSoid(String soid) {
-		this.soid = soid;
+
+	public String getDestination() {
+		return destination;
 	}
-	/**
-	 * @return the streamid
-	 */
-	public String getStreamid() {
-		return streamid;
+
+	public void setDestination(String destination) {
+		this.destination = destination;
 	}
-	/**
-	 * @param streamid the streamid to set
-	 */
-	public void setStreamid(String streamid) {
-		this.streamid = streamid;
+
+	public String getSectionId() {
+		return sectionId;
 	}
-	/**
-	 * @return the su
-	 */
-	public SensorUpdate getSu() {
-		return su;
+
+	public void setSectionId(String sectionId) {
+		this.sectionId = sectionId;
 	}
-	/**
-	 * @param su the su to set
-	 */
-	public void setSu(SensorUpdate su) {
-		this.su = su;
+
+	public String getArg() {
+		return arg;
 	}
-	
-	
+
+	public void setArg(String arg) {
+		this.arg = arg;
+	}
 }

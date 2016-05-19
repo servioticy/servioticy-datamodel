@@ -15,63 +15,31 @@
  ******************************************************************************/ 
 package com.servioticy.datamodel.subscription;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.servioticy.datamodel.Mapper;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  * 
  */
 @JsonIgnoreProperties(ignoreUnknown=true)
-@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="callback")
-@JsonSubTypes({
-	@JsonSubTypes.Type(value=SOSubscription.class, name=Subscription.SUBS_SO),
-    @JsonSubTypes.Type(value=ExternalSubscription.class, name=Subscription.SUBS_EXTERNAL),
-	@JsonSubTypes.Type(value=InternalSubscription.class, name=Subscription.SUBS_INTERNAL)
-})
-public class Subscription{
-	@JsonIgnore static final public String SUBS_SO = "internal";
-	@JsonIgnore static final public String SUBS_EXTERNAL = "pubsub";
-	@JsonIgnore static final public String SUBS_INTERNAL = "service";
-	
-	private String callback; // Kind of subscription
-	private String id;
-//	private Long delay; // Not used
-//	private Long expire; // Not used
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Subscription extends Mapper {
+	@JsonIgnore
+	public static final ObjectReader jsonReader = jsonMapper.readerFor(Subscription.class);
+	private String origin;
 	private String destination;
-	private Object customFields;
+	private String sectionId;
+	private String arg;
 
-	public Subscription(){
-		
+	public String getOrigin() {
+		return origin;
 	}
-	
-	public String getId(){
-		return id;
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
 	}
-	public void setId(String id){
-		this.id = id;
-	}
-	public String getCallback() {
-		return callback;
-	}
-	public void setCallback(String callback) {
-		this.callback = callback;
-	}
-	
-//	public Long getDelay() {
-//		return delay;
-//	}
-//	public void setDelay(Long delay) {
-//		this.delay = delay;
-//	}
-//	public Long getExpire() {
-//		return expire;
-//	}
-//	public void setExpire(Long expire) {
-//		this.expire = expire;
-//	}
 
 	public String getDestination() {
 		return destination;
@@ -81,14 +49,19 @@ public class Subscription{
 		this.destination = destination;
 	}
 
-	public Object getCustomFields() {
-		return customFields;
+	public String getSectionId() {
+		return sectionId;
 	}
 
-	public void setCustomFields(Object customFields) {
-		this.customFields = customFields;
+	public void setSectionId(String sectionId) {
+		this.sectionId = sectionId;
 	}
-	
 
+	public String getArg() {
+		return arg;
+	}
 
+	public void setArg(String arg) {
+		this.arg = arg;
+	}
 }

@@ -1,7 +1,7 @@
 package com.servioticy.datamodel.stream;
 
 /**
- * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 18/05/16.
+ * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
  */
 public class History {
     private int capacity;

@@ -1,22 +1,38 @@
 package com.servioticy.datamodel.stream;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.servioticy.datamodel.Mapper;
 
 import java.util.Map;
 
 /**
- * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 18/05/16.
+ * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Stream {
+public class Stream extends Mapper{
+    @JsonIgnore
+    public static final ObjectReader jsonReader = jsonMapper.readerFor(Stream.class);
+    @JsonIgnore
+    public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
+    private String id;
     private String version;
     private History history;
     private Map<String, Channel> channels;
     private Map<String, Metadata> metadata;
     private Map<String, Section> sections;
     private Constructor constructor;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getVersion() {
         return version;

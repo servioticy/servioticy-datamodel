@@ -9,7 +9,7 @@ import com.servioticy.datamodel.Mapper;
 
 public class SWAPartialPair extends Mapper {
     @JsonIgnore
-    public static final ObjectReader reader = mapper.reader(SWAPartialPair.class);
+    public static final ObjectReader jsonReader = jsonMapper.readerFor(SWAPartialPair.class);
     @JsonIgnore
     private String id;
     @JsonProperty("l")

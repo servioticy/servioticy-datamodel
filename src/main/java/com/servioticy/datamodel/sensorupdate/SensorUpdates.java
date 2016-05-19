@@ -18,7 +18,7 @@ package com.servioticy.datamodel.sensorupdate;
 import java.util.ArrayList;
 
 /**
- * @author Álvaro Villalba Navarro <alvaro.villalba@bsc.es>
+ * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
  * 
  */
 public class SensorUpdates {

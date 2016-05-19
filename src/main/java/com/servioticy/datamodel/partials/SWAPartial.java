@@ -9,11 +9,11 @@ import com.servioticy.datamodel.Mapper;
 import com.servioticy.datamodel.sensorupdate.SensorUpdate;
 
 /**
- * Created by Álvaro Villalba <alvaro.villalba@bsc.es> on 15/04/16.
+ * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 15/04/16.
  */
 public class SWAPartial extends Mapper {
     @JsonIgnore
-    public static final ObjectReader reader = mapper.reader(SWAPartial.class);
+    public static final ObjectReader jsonReader = jsonMapper.readerFor(SWAPartial.class);
     @JsonProperty("u")
     private SensorUpdate sensorUpdate;
     @JsonProperty("m")
