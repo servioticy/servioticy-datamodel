@@ -18,6 +18,8 @@ package com.servioticy.datamodel.subscription;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.servioticy.datamodel.Mapper;
+import com.servioticy.datamodel.stream.Stream;
+import com.servioticy.datamodel.update.Update;
 
 /**
  * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
@@ -27,7 +29,9 @@ import com.servioticy.datamodel.Mapper;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Subscription extends Mapper {
 	@JsonIgnore
-	public static final ObjectReader jsonReader = jsonMapper.readerFor(Subscription.class);
+	public static final ObjectReader jsonReader = jsonMapper.readerFor(Update.class);
+	@JsonIgnore
+	public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
 	private String origin;
 	private String destination;
 	private String sectionId;

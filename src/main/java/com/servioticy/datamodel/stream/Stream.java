@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.servioticy.datamodel.Mapper;
 
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
@@ -18,6 +18,7 @@ public class Stream extends Mapper{
     public static final ObjectReader jsonReader = jsonMapper.readerFor(Stream.class);
     @JsonIgnore
     public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
+    @JsonIgnore
     private String id;
     private String version;
     private History history;
@@ -26,10 +27,12 @@ public class Stream extends Mapper{
     private Map<String, Section> sections;
     private Constructor constructor;
 
+    @JsonIgnore
     public String getId() {
         return id;
     }
 
+    @JsonIgnore
     public void setId(String id) {
         this.id = id;
     }
@@ -80,5 +83,25 @@ public class Stream extends Mapper{
 
     public void setConstructor(Constructor constructor) {
         this.constructor = constructor;
+    }
+
+    @JsonIgnore
+    public Map<String, Object> getMetadataValues(){
+        Map<String, Object> values = new HashMap<>();
+        for (Map.Entry<String, Metadata> metadataEntry: getMetadata().entrySet()){
+            values.put(metadataEntry.getKey(), metadataEntry.getValue().getValue());
+        }
+        return values;
+    }
+
+    @JsonIgnore
+    public List<String> findSubscribedSections(String sectionId){
+        List<String> sections = new ArrayList<>();
+        for (Map.Entry<String,Section> sectionEntry: getSections().entrySet()){
+            if (sectionEntry.getValue().getArgs().indexOf(sectionId) != -1){
+                sections.add(sectionEntry.getKey());
+            }
+        }
+        return sections;
     }
 }

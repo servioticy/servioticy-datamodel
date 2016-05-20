@@ -10,29 +10,86 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Offset implements Comparable<Offset>{
-    private Long timestampMS;
-    private Long partitionOffset;
+    private Long sourceTimestampMS;
+    private int sourcePartId;
+    private Long sourcePartOffset;
+    private Long streamTimestampMS;
+    private int streamPartId;
+    private Long streamPartOffset;
 
-    public Long getTimestampMS() {
-        return timestampMS;
+    public Long getSourceTimestampMS() {
+        return sourceTimestampMS;
     }
 
-    public void setTimestampMS(Long timestampMS) {
-        this.timestampMS = timestampMS;
+    public void setSourceTimestampMS(Long sourceTimestampMS) {
+        this.sourceTimestampMS = sourceTimestampMS;
     }
 
-    public Long getPartitionOffset() {
-        return partitionOffset;
+    public int getSourcePartId() {
+        return sourcePartId;
     }
 
-    public void setPartitionOffset(Long partitionOffset) {
-        this.partitionOffset = partitionOffset;
+    public void setSourcePartId(int sourcePartId) {
+        this.sourcePartId = sourcePartId;
+    }
+
+    public Long getSourcePartOffset() {
+        return sourcePartOffset;
+    }
+
+    public void setSourcePartOffset(Long sourcePartOffset) {
+        this.sourcePartOffset = sourcePartOffset;
+    }
+
+    public Long getStreamTimestampMS() {
+        return streamTimestampMS;
+    }
+
+    public void setStreamTimestampMS(Long streamTimestampMS) {
+        this.streamTimestampMS = streamTimestampMS;
+    }
+
+    public int getStreamPartId() {
+        return streamPartId;
+    }
+
+    public void setStreamPartId(int streamPartId) {
+        this.streamPartId = streamPartId;
+    }
+
+    public Long getStreamPartOffset() {
+        return streamPartOffset;
+    }
+
+    public void setStreamPartOffset(Long streamPartOffset) {
+        this.streamPartOffset = streamPartOffset;
     }
 
     @JsonIgnore
     @Override
     public int compareTo(Offset offset) {
-        int result = this.getTimestampMS().compareTo(offset.getTimestampMS());
-        return result == 0 ? this.getPartitionOffset().compareTo(offset.getPartitionOffset()) : result;
+        int result = this.getSourceTimestampMS().compareTo(offset.getSourceTimestampMS());
+        if (result != 0){
+            return result;
+        }
+
+        if (this.getSourcePartId() == offset.getSourcePartId()){
+            result = this.getStreamPartOffset().compareTo(offset.getStreamPartOffset());
+            if (result != 0){
+                return result;
+            }
+        }
+        result = this.getStreamTimestampMS().compareTo(offset.getStreamTimestampMS());
+        if (result != 0){
+            return result;
+        }
+
+        if (this.getSourcePartId() == offset.getSourcePartId()){
+            result = this.getStreamPartOffset().compareTo(offset.getStreamPartOffset());
+            if (result != 0){
+                return result;
+            }
+        }
+        return result;
     }
 }

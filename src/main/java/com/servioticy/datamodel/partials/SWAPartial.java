@@ -69,7 +69,7 @@ public class SWAPartial extends Mapper {
     }
 
     public static ObjectReader getReader() {
-        return reader;
+        return jsonReader;
     }
 
     @JsonGetter("ckv")

@@ -20,18 +20,8 @@ public class Update extends Mapper {
     public static final ObjectReader jsonReader = jsonMapper.readerFor(Update.class);
     @JsonIgnore
     public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
-    private String streamId;
     private Map<String, Object> values;
-//    private Map<String, Object> metadata;
     private Offset offset;
-
-    public String getStreamId() {
-        return streamId;
-    }
-
-    public void setStreamId(String streamId) {
-        this.streamId = streamId;
-    }
 
     public Map<String, Object> getValues() {
         return values;
@@ -40,15 +30,6 @@ public class Update extends Mapper {
     public void setValues(Map<String, Object> values) {
         this.values = values;
     }
-
-//    public Map<String, Object> getMetadata() {
-//        return metadata;
-//    }
-//
-//    public void setMetadata(Map<String, Object> metadata) {
-//        this.metadata = metadata;
-//    }
-
 
     public Offset getOffset() {
         return offset;
@@ -59,7 +40,7 @@ public class Update extends Mapper {
     }
 
     @JsonIgnore
-    public boolean compatible(Stream stream){
+    public boolean isCompatible(Stream stream){
         Map<String, Channel> channels = stream.getChannels();
         Map<String, Object> values = getValues();
         for (Map.Entry<String, Object> valueEntry: values.entrySet()){

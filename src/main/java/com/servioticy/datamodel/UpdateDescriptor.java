@@ -19,6 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.servioticy.datamodel.stream.Stream;
+import com.servioticy.datamodel.subscription.Subscription;
 import com.servioticy.datamodel.update.Update;
 
 /**
@@ -32,9 +33,7 @@ public class UpdateDescriptor extends Mapper {
 	@JsonIgnore
 	public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
 	private Update update;
-	private String destination;
-	private String sectionId;
-	private String arg;
+	private Subscription subscription;
 
 	public Update getUpdate() {
 		return update;
@@ -44,27 +43,11 @@ public class UpdateDescriptor extends Mapper {
 		this.update = update;
 	}
 
-	public String getDestination() {
-		return destination;
+	public Subscription getSubscription() {
+		return subscription;
 	}
 
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
-
-	public String getSectionId() {
-		return sectionId;
-	}
-
-	public void setSectionId(String sectionId) {
-		this.sectionId = sectionId;
-	}
-
-	public String getArg() {
-		return arg;
-	}
-
-	public void setArg(String arg) {
-		this.arg = arg;
+	public void setSubscription(Subscription subscription) {
+		this.subscription = subscription;
 	}
 }

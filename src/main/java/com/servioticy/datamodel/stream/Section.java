@@ -13,9 +13,15 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Section {
     @JsonIgnore
+    public static final String TYPE_TRANSFORM = "transform";
+    @JsonIgnore
+    public static final String TYPE_MERGE = "merge";
+    @JsonIgnore
     public static final String TYPE_COMPOSE = "compose";
     @JsonIgnore
-    public static final String TYPE_SW_AGGREGATOR = "swaggregate";
+    public static final String TYPE_WIN_AGGREGATOR = "winaggregate";
+    @JsonIgnore
+    public static final String TYPE_COMP_AGGREGATOR = "compaggregate";
     private List<String> args;
     private String type;
     private String func;
@@ -31,7 +37,7 @@ public class Section {
     public String getType() {
         switch (type){
             case TYPE_COMPOSE:
-            case TYPE_SW_AGGREGATOR:
+            case TYPE_WIN_AGGREGATOR:
                 return type;
             default:
                 return null;
@@ -41,7 +47,7 @@ public class Section {
     public void setType(String type) {
         switch (type){
             case TYPE_COMPOSE:
-            case TYPE_SW_AGGREGATOR:
+            case TYPE_WIN_AGGREGATOR:
                 this.type = type;
                 break;
             default:
