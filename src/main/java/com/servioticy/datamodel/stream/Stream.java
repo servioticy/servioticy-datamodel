@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.servioticy.datamodel.Mapper;
+import com.servioticy.datamodel.update.Value;
 
 import java.util.*;
 
@@ -86,15 +87,6 @@ public class Stream extends Mapper{
     }
 
     @JsonIgnore
-    public Map<String, Object> getMetadataValues(){
-        Map<String, Object> values = new HashMap<>();
-        for (Map.Entry<String, Metadata> metadataEntry: getMetadata().entrySet()){
-            values.put(metadataEntry.getKey(), metadataEntry.getValue().getValue());
-        }
-        return values;
-    }
-
-    @JsonIgnore
     public List<String> findSubscribedSections(String sectionId){
         List<String> sections = new ArrayList<>();
         for (Map.Entry<String,Section> sectionEntry: getSections().entrySet()){
@@ -103,5 +95,14 @@ public class Stream extends Mapper{
             }
         }
         return sections;
+    }
+
+    @JsonIgnore
+    public Map<String, Object> getSimpleMetadata() {
+        Map<String, Object> values = new HashMap<>();
+        for (Map.Entry<String, Metadata> metadataEntry: getMetadata().entrySet()){
+            values.put(metadataEntry.getKey(), metadataEntry.getValue().getValue().getValue());
+        }
+        return values;
     }
 }

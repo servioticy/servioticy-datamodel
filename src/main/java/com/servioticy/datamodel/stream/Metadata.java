@@ -1,39 +1,23 @@
 package com.servioticy.datamodel.stream;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.servioticy.datamodel.update.Value;
 
 /**
  * Created by Álvaro Villalba (alvaro.villalba@bsc.es) on 18/05/16.
  */
-public class Metadata extends Channel {
-    private Object value;
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Metadata {
+    private Value value;
 
-    public Object getValue() {
+    public Value getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(Value value) {
         this.value = value;
     }
 
-    @JsonIgnore
-    public Number getValueNumber(){
-        return (Number) this.value;
-    }
-
-    @JsonIgnore
-    public boolean getValueBoolean(){
-        return (Boolean) this.value;
-    }
-
-    @JsonIgnore
-    public String getValueString(){
-        return (String) this.value;
-    }
-
-    // TODO
-//    @JsonIgnore
-//    public GeoJSON getValueString(){
-//        return (GeoJSON) this.value;
-//    }
 }

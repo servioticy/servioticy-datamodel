@@ -1,8 +1,8 @@
 package com.servioticy.datamodel.stream;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.servioticy.datamodel.update.Value;
 
 import java.util.List;
 
@@ -12,24 +12,20 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Channel {
-    @JsonIgnore
-    public static final String TYPE_NUMBER = "number";
-    @JsonIgnore
-    public static final String TYPE_BOOLEAN = "boolean";
-    @JsonIgnore
-    public static final String TYPE_STRING = "string";
-    @JsonIgnore
-    public static final String TYPE_GEOJSON = "geojson";
     private String type;
     private List<String> units;
     private List<String> tags;
 
     public String getType() {
         switch (type){
-            case TYPE_NUMBER:
-            case TYPE_BOOLEAN:
-            case TYPE_STRING:
-            case TYPE_GEOJSON:
+            case Value.TYPE_NUMBER:
+            case Value.TYPE_BOOLEAN:
+            case Value.TYPE_STRING:
+            case Value.TYPE_GEOJSON:
+            case Value.TYPE_NUMBER_ARRAY:
+            case Value.TYPE_BOOLEAN_ARRAY:
+            case Value.TYPE_STRING_ARRAY:
+            case Value.TYPE_GEOJSON_ARRAY:
                 return type;
             default:
                 return null;
@@ -38,10 +34,14 @@ public class Channel {
 
     public void setType(String type) {
         switch (type){
-            case TYPE_NUMBER:
-            case TYPE_BOOLEAN:
-            case TYPE_STRING:
-            case TYPE_GEOJSON:
+            case Value.TYPE_NUMBER:
+            case Value.TYPE_BOOLEAN:
+            case Value.TYPE_STRING:
+            case Value.TYPE_GEOJSON:
+            case Value.TYPE_NUMBER_ARRAY:
+            case Value.TYPE_BOOLEAN_ARRAY:
+            case Value.TYPE_STRING_ARRAY:
+            case Value.TYPE_GEOJSON_ARRAY:
                 this.type = type;
                 break;
             default:

@@ -19,7 +19,9 @@ import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.servioticy.datamodel.Mapper;
 import com.servioticy.datamodel.stream.Stream;
-import com.servioticy.datamodel.update.Update;
+import com.servioticy.datamodel.update.StoreUpdate;
+
+import java.util.List;
 
 /**
  * @author Álvaro Villalba Navarro (alvaro.villalba@bsc.es)
@@ -29,13 +31,12 @@ import com.servioticy.datamodel.update.Update;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Subscription extends Mapper {
 	@JsonIgnore
-	public static final ObjectReader jsonReader = jsonMapper.readerFor(Update.class);
+	public static final ObjectReader jsonReader = jsonMapper.readerFor(Subscription.class);
 	@JsonIgnore
-	public static final ObjectReader binReader = binMapper.readerFor(Stream.class);
+	public static final ObjectReader binReader = binMapper.readerFor(Subscription.class);
 	private String origin;
 	private String destination;
-	private String sectionId;
-	private String arg;
+	private List<String> args;
 
 	public String getOrigin() {
 		return origin;
@@ -53,19 +54,11 @@ public class Subscription extends Mapper {
 		this.destination = destination;
 	}
 
-	public String getSectionId() {
-		return sectionId;
+	public List<String> getArgs() {
+		return args;
 	}
 
-	public void setSectionId(String sectionId) {
-		this.sectionId = sectionId;
-	}
-
-	public String getArg() {
-		return arg;
-	}
-
-	public void setArg(String arg) {
-		this.arg = arg;
+	public void setArgs(List<String> args) {
+		this.args = args;
 	}
 }
