@@ -9,7 +9,6 @@ import com.servioticy.datamodel.stream.Channel;
 import com.servioticy.datamodel.stream.Stream;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import rx.Observable;
@@ -83,8 +82,8 @@ public class StoreUpdate extends Mapper {
     }
 
     @JsonIgnore
-    public Update toUpdate(){
-        Update update = new Update();
+    public StreamUpdate toStreamUpdate(){
+        StreamUpdate update = new StreamUpdate();
         update.setValues(getSimpleValues());
         update.setOffset(getOffset());
         return update;

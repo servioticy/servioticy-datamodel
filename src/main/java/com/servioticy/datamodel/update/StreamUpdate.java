@@ -18,11 +18,11 @@ import java.util.Map;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Update extends Mapper{
+public class StreamUpdate extends Mapper{
     @JsonIgnore
-    public static final ObjectReader jsonReader = jsonMapper.readerFor(Update.class);
+    public static final ObjectReader jsonReader = jsonMapper.readerFor(StreamUpdate.class);
     @JsonIgnore
-    public static final ObjectReader binReader = binMapper.readerFor(Update.class);
+    public static final ObjectReader binReader = binMapper.readerFor(StreamUpdate.class);
 
     private Map<String, Object> values;
     private Offset offset;
