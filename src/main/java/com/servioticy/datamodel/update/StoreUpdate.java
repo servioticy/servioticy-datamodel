@@ -82,8 +82,8 @@ public class StoreUpdate extends Mapper {
     }
 
     @JsonIgnore
-    public StreamUpdate toStreamUpdate(){
-        StreamUpdate update = new StreamUpdate();
+    public SectionUpdate toSectionUpdate(){
+        SectionUpdate update = new SectionUpdate();
         update.setValues(getSimpleValues());
         update.setOffset(getOffset());
         return update;
