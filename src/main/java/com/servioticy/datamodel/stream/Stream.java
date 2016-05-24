@@ -87,10 +87,10 @@ public class Stream extends Mapper{
     }
 
     @JsonIgnore
-    public List<String> findSubscribedSections(String sectionId){
+    public List<String> findSubscribedSections(String arg){
         List<String> sections = new ArrayList<>();
         for (Map.Entry<String,Section> sectionEntry: getSections().entrySet()){
-            if (sectionEntry.getValue().getArgs().indexOf(sectionId) != -1){
+            if (sectionEntry.getValue().getArgs().indexOf(arg) != -1){
                 sections.add(sectionEntry.getKey());
             }
         }
