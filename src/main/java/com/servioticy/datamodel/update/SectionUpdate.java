@@ -58,6 +58,9 @@ public class SectionUpdate extends Mapper {
                     if (!channels.containsKey(channelId)){
                         return false;
                     }
+                    if (valueEntry.getValue() == null){
+                        return false;
+                    }
 
                     switch (channels.get(channelId).getType()){
                         case Value.TYPE_BOOLEAN:
@@ -122,6 +125,14 @@ public class SectionUpdate extends Mapper {
                     }
                     return true;
                 })
+                .filter(_compatible -> !_compatible)
+                .toBlocking()
+                .firstOrDefault(true);
+        if (!compatible){
+            return false;
+        }
+        compatible = Observable.from(channels.entrySet())
+                .map(channelEntry -> values.containsKey(channelEntry.getKey()))
                 .filter(_compatible -> !_compatible)
                 .toBlocking()
                 .firstOrDefault(true);
